@@ -1,0 +1,57 @@
+## ----------------------------------------------------------------------
+## Instructions
+##
+## All of the properties in this file are commented out; they have a pound
+## symbol at the start of each line that renders them inert.
+##
+## Instructions and headings are marked with two preceding pound
+## symbols (##).
+##
+## On import, all commented-out properties are ignored, and the
+## corresponding values in the destination environment remain
+## unchanged.
+##
+## To set or change a property on import using this file,
+## uncomment the property by removing the pound symbol from the start
+## of its line. Then enter a value for the property after the equals
+## sign (=) at the end of that import customization file.
+##
+## If you uncomment a property, but provide no value, the value of
+## that property will be set to null in the destination environment.
+## Properties that correspond to admin console settings and require a value
+## will be set to their default value instead of being set to null. Default
+## values of settings may be different between versions of Appian.
+##
+## To force sync of a record type please add an entry to the file in the following format
+## recordType.<UUID>.forceSync=true
+##
+## To force import unchanged objects add the following line in the file
+## importSetting.FORCE_UPDATE=true
+##
+## To force import report/dashboard objects add the following line in the file
+## report.<UUID>.forceOverrideProtection=true
+## dashboard.<UUID>.forceOverrideProtection=true
+##
+## To automatically start the event consumer you are importing, add the following to the file
+## eventConsumer.<UUID>.autoStart=true
+##
+## Note: Never remove the double pound symbols (##) in front of instructions
+## and headings.
+## ----------------------------------------------------------------------
+
+## Connected System: WS Get Data
+#connectedSystem._a-0000ee74-69b2-8000-9c71-011c48011c48_6356429.baseUrl=https://appcinodev.appiancloud.com/suite/webapi/_6Xo2g
+#connectedSystem._a-0000ee74-69b2-8000-9c71-011c48011c48_6356429.username=
+#connectedSystem._a-0000ee74-69b2-8000-9c71-011c48011c48_6356429.password=
+
+## Connected System: WS OUTLOOK
+#connectedSystem._a-0000ee34-a985-8000-9c6f-011c48011c48_6313768.username=
+#connectedSystem._a-0000ee34-a985-8000-9c6f-011c48011c48_6313768.password=
+
+## Connected System: WS Workday
+#connectedSystem._a-0000ee34-a985-8000-9c6f-011c48011c48_6308614.baseUrl=https://www.workday.com/en-gb/homepage.html
+
+## Connected System: WS write comment
+#connectedSystem._a-0000ee74-69b2-8000-9c71-011c48011c48_6356409.baseUrl=https://appcinodev.appiancloud.com/suite/webapi/HvRUVQ
+#connectedSystem._a-0000ee74-69b2-8000-9c71-011c48011c48_6356409.username=
+#connectedSystem._a-0000ee74-69b2-8000-9c71-011c48011c48_6356409.password=
