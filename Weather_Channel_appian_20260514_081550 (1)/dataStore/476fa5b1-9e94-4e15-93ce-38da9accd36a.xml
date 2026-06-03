@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataStoreHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>476fa5b1-9e94-4e15-93ce-38da9accd36a</versionUuid>
+    <dataStore>
+        <uuid>476fa5b1-9e94-4e15-93ce-38da9accd36a</uuid>
+        <name>WEC Data Store</name>
+        <description>Primary datastore for WEC Data Store</description>
+        <dataSourceKey>jdbc/Appian</dataSourceKey>
+        <adaptingExplicitSqlNames>false</adaptingExplicitSqlNames>
+        <autoUpdateSchema>true</autoUpdateSchema>
+        <entities>
+            <entity>
+                <uuid>bd43b696-91df-4abc-abf6-abc4c8e6f8d2</uuid>
+                <name>WEC_WEATHERQUERY</name>
+                <type>{urn:com:appian:types:WEC}WEC_WEATHERQUERY</type>
+            </entity>
+            <entity>
+                <uuid>8c280211-bfb1-494c-9bc4-82982683bc06</uuid>
+                <name>WEC_WEATHERFORECAST</name>
+                <type>{urn:com:appian:types:WEC}WEC_WEATHERFORECAST</type>
+            </entity>
+            <entity>
+                <uuid>011f0250-a585-45c1-be08-feeb60c4fe49</uuid>
+                <name>WEC_CITY</name>
+                <type>{urn:com:appian:types:WEC}WEC_CITY</type>
+            </entity>
+            <entity>
+                <uuid>cb4e8764-c551-4d4c-b1f3-cc8f859d96bd</uuid>
+                <name>WEC_APICONFIGURATION</name>
+                <type>{urn:com:appian:types:WEC}WEC_APICONFIGURATION</type>
+            </entity>
+            <entity>
+                <uuid>1871ddf9-b842-45bc-886e-dd1ce653837f</uuid>
+                <name>WEC_USERPREFERENCE</name>
+                <type>{urn:com:appian:types:WEC}WEC_USERPREFERENCE</type>
+            </entity>
+        </entities>
+    </dataStore>
+    <isPublished>true</isPublished>
+    <roleMap>
+        <role inherit="false" allowForAll="false" name="administrators"><users/><groups><groupUuid>acee5076-9642-4587-adfb-295220bb33b4</groupUuid></groups></role>
+        <role inherit="false" allowForAll="false" name="authors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAuthors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyReaders"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="readers"><users/><groups><groupUuid>79515249-4527-444b-8be9-c0063de8540c</groupUuid></groups></role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="476fa5b1-9e94-4e15-93ce-38da9accd36a"/>
+    </history>
+</dataStoreHaul>

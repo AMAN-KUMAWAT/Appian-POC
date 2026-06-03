@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>5f446d8f-647b-4a15-9f96-f111843410ef</versionUuid>
+    <interface>
+        <name>WEC_UserPreference_Form</name>
+        <uuid>319e40c2-2a61-48eb-9c35-fdba89a02621</uuid>
+        <description>Create/Update form for UserPreference</description>
+        <parentUuid>1dd9f16f-b404-40e4-8d8f-315fe9df0c70</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  titleBar: #&quot;SYSTEM_SYSRULES_headerTemplateSimple&quot;(
+    title: &quot;Create / Update UserPreference&quot;,
+    secondaryText: &quot;Fill in the fields below and click Save.&quot;
+  ),
+  contents: {
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;userName&quot;, value: ri!record.userName, saveInto: ri!record.userName, required: true),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;defaultTemperatureScale&quot;, value: ri!record.defaultTemperatureScale, saveInto: ri!record.defaultTemperatureScale, required: true),
+    #&quot;SYSTEM_SYSRULES_paragraphField&quot;(label: &quot;favoriteCities&quot;, value: ri!record.favoriteCities, saveInto: ri!record.favoriteCities, height: &quot;SHORT&quot;),
+    #&quot;SYSTEM_SYSRULES_checkboxField_v1&quot;(label: &quot;notificationsEnabled&quot;, value: ri!record.notificationsEnabled, saveInto: ri!record.notificationsEnabled, choiceLabels: {&quot;Yes&quot;}, choiceValues: {true})
+  },
+  buttons: #&quot;SYSTEM_SYSRULES_buttonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_buttonWidget_v1&quot;(label: &quot;Save&quot;, submit: true, style: &quot;PRIMARY&quot;)
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_buttonWidget_v1&quot;(label: &quot;Cancel&quot;, value: true, saveInto: ri!cancel, submit: true, validate: false)
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>record</name>
+            <type>
+                <name>WEC_USERPREFERENCE</name>
+                <namespace>urn:com:appian:types:WEC</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="authors"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="administrators"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyReaders"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAuthors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators"><users/><groups/></role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="5f446d8f-647b-4a15-9f96-f111843410ef"/>
+    </history>
+</contentHaul>

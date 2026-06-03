@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupTypeHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>SYSTEM_GROUP_TYPE_CUSTOM</versionUuid>
+    <groupType>
+        <name>Custom</name>
+        <uuid>SYSTEM_GROUP_TYPE_CUSTOM</uuid>
+        <description>Groups with custom Membership and Viewing policies created by Administrators</description>
+        <attributes/>
+    </groupType>
+    <history>
+        <historyInfo versionUuid="SYSTEM_GROUP_TYPE_CUSTOM"/>
+    </history>
+</groupTypeHaul>

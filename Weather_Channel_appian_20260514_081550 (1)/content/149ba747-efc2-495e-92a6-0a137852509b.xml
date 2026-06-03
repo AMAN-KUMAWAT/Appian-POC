@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>006efbb0-090f-42fd-83e0-72e44c716444</versionUuid>
+    <interface>
+        <name>WEC_ApiConfiguration_Overview</name>
+        <uuid>149ba747-efc2-495e-92a6-0a137852509b</uuid>
+        <description>Schema overview for ApiConfiguration</description>
+        <parentUuid>1dd9f16f-b404-40e4-8d8f-315fe9df0c70</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#&quot;SYSTEM_SYSRULES_sectionLayout_v1&quot;(
+  label: &quot;ApiConfiguration&quot;,
+  labelSize: &quot;LARGE&quot;,
+  contents: {
+    #&quot;SYSTEM_SYSRULES_richTextDisplayField&quot;(
+      labelPosition: &quot;COLLAPSED&quot;,
+      value: { #&quot;SYSTEM_SYSRULES_richTextItem_v1&quot;(text: &quot;Entity schema — fields:&quot;, color: &quot;SECONDARY&quot;) }
+    ),
+    #&quot;SYSTEM_SYSRULES_columnsLayout&quot;(columns: {
+      #&quot;SYSTEM_SYSRULES_columnLayout&quot;(contents: {
+      #&quot;SYSTEM_SYSRULES_tagField&quot;(
+        labelPosition: &quot;COLLAPSED&quot;,
+        tags: {
+          #&quot;SYSTEM_SYSRULES_tagItem_v1&quot;(text: &quot;apiName : string&quot;,
+                    backgroundColor: &quot;ACCENT&quot;)
+        }
+      ),
+      #&quot;SYSTEM_SYSRULES_tagField&quot;(
+        labelPosition: &quot;COLLAPSED&quot;,
+        tags: {
+          #&quot;SYSTEM_SYSRULES_tagItem_v1&quot;(text: &quot;apiEndpoint : string&quot;,
+                    backgroundColor: &quot;ACCENT&quot;)
+        }
+      ),
+      #&quot;SYSTEM_SYSRULES_tagField&quot;(
+        labelPosition: &quot;COLLAPSED&quot;,
+        tags: {
+          #&quot;SYSTEM_SYSRULES_tagItem_v1&quot;(text: &quot;apiKey : string&quot;,
+                    backgroundColor: &quot;ACCENT&quot;)
+        }
+      ),
+      #&quot;SYSTEM_SYSRULES_tagField&quot;(
+        labelPosition: &quot;COLLAPSED&quot;,
+        tags: {
+          #&quot;SYSTEM_SYSRULES_tagItem_v1&quot;(text: &quot;isActive : boolean&quot;,
+                    backgroundColor: &quot;ACCENT&quot;)
+        }
+      ),
+      #&quot;SYSTEM_SYSRULES_tagField&quot;(
+        labelPosition: &quot;COLLAPSED&quot;,
+        tags: {
+          #&quot;SYSTEM_SYSRULES_tagItem_v1&quot;(text: &quot;rateLimitPerHour : int&quot;,
+                    backgroundColor: &quot;ACCENT&quot;)
+        }
+      ),
+      #&quot;SYSTEM_SYSRULES_tagField&quot;(
+        labelPosition: &quot;COLLAPSED&quot;,
+        tags: {
+          #&quot;SYSTEM_SYSRULES_tagItem_v1&quot;(text: &quot;timeoutSeconds : int&quot;,
+                    backgroundColor: &quot;ACCENT&quot;)
+        }
+      )
+      })
+    }),
+    #&quot;SYSTEM_SYSRULES_richTextDisplayField&quot;(
+      labelPosition: &quot;COLLAPSED&quot;,
+      value: {
+        #&quot;SYSTEM_SYSRULES_richTextItem_v1&quot;(text: char(10) &amp; &quot;Configure this interface in Appian Designer to query &quot;
+                             &amp; &quot;WEC_APICONFIGURATION via a record type or data store query.&quot;,
+                       color: &quot;SECONDARY&quot;, style: &quot;EMPHASIS&quot;)
+      }
+    )
+  }
+)</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="authors"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="administrators"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyReaders"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAuthors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators"><users/><groups/></role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="006efbb0-090f-42fd-83e0-72e44c716444"/>
+    </history>
+</contentHaul>

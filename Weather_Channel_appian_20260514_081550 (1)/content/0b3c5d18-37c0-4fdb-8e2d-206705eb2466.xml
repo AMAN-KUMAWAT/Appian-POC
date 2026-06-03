@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>a19f694b-60e5-4cf3-9c14-99774c66cb67</versionUuid>
+    <rule>
+        <name>WEC_ApiConfiguration_DisplayName</name>
+        <uuid>0b3c5d18-37c0-4fdb-8e2d-206705eb2466</uuid>
+        <description>Display-name expression for ApiConfiguration</description>
+        <parentUuid>1dd9f16f-b404-40e4-8d8f-315fe9df0c70</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>&quot;ApiConfiguration #&quot; &amp; tostring(ri!record.id)</definition>
+        <namedTypedValue>
+            <name>record</name>
+            <type>
+                <name>WEC_APICONFIGURATION</name>
+                <namespace>urn:com:appian:types:WEC</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="authors"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="administrators"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyReaders"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAuthors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators"><users/><groups/></role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="a19f694b-60e5-4cf3-9c14-99774c66cb67"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:com:appian:types:WEC"
+  xmlns:tns="urn:com:appian:types:WEC" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="WEC_WEATHERFORECAST">
+    <xsd:annotation>
+      <xsd:appinfo source="appian.jpa">@Table(name="WEC_WEATHERFORECAST")</xsd:appinfo>
+      <xsd:appinfo source="http://www.appian.com/ae/types/2009">
+        <ns2:Metadata xmlns:ns2="http://www.appian.com/ae/types/2009">
+          <ns2:versionUuid>29e86724-93f3-45ab-aa12-31f10aeca43a</ns2:versionUuid>
+          <ns2:history>
+            <ns2:historyInfo versionUuid="29e86724-93f3-45ab-aa12-31f10aeca43a"/>
+          </ns2:history>
+        </ns2:Metadata>
+      </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Id @GeneratedValue @Column(name=&quot;ID&quot;, nullable=false, unique=true, columnDefinition=&quot;INT&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="cityName" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;CITY_NAME&quot;, columnDefinition=&quot;VARCHAR(255)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="longitude" nillable="true" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;LONGITUDE&quot;, columnDefinition=&quot;DECIMAL(19,4)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="latitude" nillable="true" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;LATITUDE&quot;, columnDefinition=&quot;DECIMAL(19,4)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="temperature" nillable="true" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;TEMPERATURE&quot;, columnDefinition=&quot;DECIMAL(19,4)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="temperatureMin" nillable="true" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;TEMPERATURE_MIN&quot;, columnDefinition=&quot;DECIMAL(19,4)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="temperatureMax" nillable="true" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;TEMPERATURE_MAX&quot;, columnDefinition=&quot;DECIMAL(19,4)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="feelsLike" nillable="true" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;FEELS_LIKE&quot;, columnDefinition=&quot;DECIMAL(19,4)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="pressure" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;PRESSURE&quot;, columnDefinition=&quot;INT&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="humidity" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;HUMIDITY&quot;, columnDefinition=&quot;INT&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="weatherCondition" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;WEATHER_CONDITION&quot;, columnDefinition=&quot;VARCHAR(255)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="weatherDescription" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;WEATHER_DESCRIPTION&quot;, columnDefinition=&quot;VARCHAR(4000)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="weatherIcon" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;WEATHER_ICON&quot;, columnDefinition=&quot;VARCHAR(255)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="windSpeed" nillable="true" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;WIND_SPEED&quot;, columnDefinition=&quot;DECIMAL(19,4)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="windDegree" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;WIND_DEGREE&quot;, columnDefinition=&quot;INT&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="cloudiness" nillable="true" type="xsd:int">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;CLOUDINESS&quot;, columnDefinition=&quot;INT&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="forecastTimestamp" nillable="true" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;FORECAST_TIMESTAMP&quot;, columnDefinition=&quot;DATETIME&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="createdBy" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;CREATED_BY&quot;, columnDefinition=&quot;VARCHAR(255)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="createdOn" nillable="true" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;CREATED_ON&quot;, columnDefinition=&quot;DATETIME&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="modifiedBy" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;MODIFIED_BY&quot;, columnDefinition=&quot;VARCHAR(255)&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="modifiedOn" nillable="true" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:appinfo source="appian.jpa">@Column(name=&quot;MODIFIED_ON&quot;, columnDefinition=&quot;DATETIME&quot;)</xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

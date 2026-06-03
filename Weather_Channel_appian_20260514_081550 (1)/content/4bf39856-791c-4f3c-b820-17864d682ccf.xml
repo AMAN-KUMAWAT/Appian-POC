@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>ebeea638-d64c-47a2-81b4-0bef5131b077</versionUuid>
+    <interface>
+        <name>WEC_ApiConfiguration_Form</name>
+        <uuid>4bf39856-791c-4f3c-b820-17864d682ccf</uuid>
+        <description>Create/Update form for ApiConfiguration</description>
+        <parentUuid>1dd9f16f-b404-40e4-8d8f-315fe9df0c70</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  titleBar: #&quot;SYSTEM_SYSRULES_headerTemplateSimple&quot;(
+    title: &quot;Create / Update ApiConfiguration&quot;,
+    secondaryText: &quot;Fill in the fields below and click Save.&quot;
+  ),
+  contents: {
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;apiName&quot;, value: ri!record.apiName, saveInto: ri!record.apiName, required: true),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;apiEndpoint&quot;, value: ri!record.apiEndpoint, saveInto: ri!record.apiEndpoint, required: true),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;apiKey&quot;, value: ri!record.apiKey, saveInto: ri!record.apiKey, required: true),
+    #&quot;SYSTEM_SYSRULES_checkboxField_v1&quot;(label: &quot;isActive&quot;, value: ri!record.isActive, saveInto: ri!record.isActive, choiceLabels: {&quot;Yes&quot;}, choiceValues: {true}),
+    #&quot;SYSTEM_SYSRULES_integerField&quot;(label: &quot;rateLimitPerHour&quot;, value: ri!record.rateLimitPerHour, saveInto: ri!record.rateLimitPerHour),
+    #&quot;SYSTEM_SYSRULES_integerField&quot;(label: &quot;timeoutSeconds&quot;, value: ri!record.timeoutSeconds, saveInto: ri!record.timeoutSeconds)
+  },
+  buttons: #&quot;SYSTEM_SYSRULES_buttonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_buttonWidget_v1&quot;(label: &quot;Save&quot;, submit: true, style: &quot;PRIMARY&quot;)
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_buttonWidget_v1&quot;(label: &quot;Cancel&quot;, value: true, saveInto: ri!cancel, submit: true, validate: false)
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>record</name>
+            <type>
+                <name>WEC_APICONFIGURATION</name>
+                <namespace>urn:com:appian:types:WEC</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="authors"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="administrators"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyReaders"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAuthors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators"><users/><groups/></role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="ebeea638-d64c-47a2-81b4-0bef5131b077"/>
+    </history>
+</contentHaul>

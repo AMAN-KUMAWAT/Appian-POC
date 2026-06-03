@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>fd562d9c-75a3-415c-b686-3d11b385b3ad</versionUuid>
+    <rule>
+        <name>WEC_UserPreference_DisplayName</name>
+        <uuid>a80abcfa-99d0-4c4e-8df2-2cf65c3a97b4</uuid>
+        <description>Display-name expression for UserPreference</description>
+        <parentUuid>1dd9f16f-b404-40e4-8d8f-315fe9df0c70</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>&quot;UserPreference #&quot; &amp; tostring(ri!record.id)</definition>
+        <namedTypedValue>
+            <name>record</name>
+            <type>
+                <name>WEC_USERPREFERENCE</name>
+                <namespace>urn:com:appian:types:WEC</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="authors"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="administrators"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyReaders"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAuthors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators"><users/><groups/></role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="fd562d9c-75a3-415c-b686-3d11b385b3ad"/>
+    </history>
+</contentHaul>

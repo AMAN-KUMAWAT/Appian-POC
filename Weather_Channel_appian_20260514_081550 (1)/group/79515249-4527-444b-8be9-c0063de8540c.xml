@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>79515249-4527-444b-8be9-c0063de8540c</versionUuid>
+    <group>
+        <name>WEC Weather Channel Users</name>
+        <securityMap>SECURITYMAP_TEAM</securityMap>
+        <uuid>79515249-4527-444b-8be9-c0063de8540c</uuid>
+        <groupTypeUuid>SYSTEM_GROUP_TYPE_CUSTOM</groupTypeUuid>
+        <description>Assigns viewer permissions to users of Weather Channel</description>
+        <delegatedCreation>false</delegatedCreation>
+        <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
+        <viewingPolicy>VIEWINGPOLICY_LOW</viewingPolicy>
+        <attributes/>
+    </group>
+    <members>
+        <users/>
+        <groups>
+            <groupUuid>acee5076-9642-4587-adfb-295220bb33b4</groupUuid>
+        </groups>
+    </members>
+    <admins>
+        <users/>
+        <groups>
+            <groupUuid>acee5076-9642-4587-adfb-295220bb33b4</groupUuid>
+        </groups>
+    </admins>
+    <ruleSet/>
+    <history>
+        <historyInfo versionUuid="79515249-4527-444b-8be9-c0063de8540c"/>
+    </history>
+</groupHaul>

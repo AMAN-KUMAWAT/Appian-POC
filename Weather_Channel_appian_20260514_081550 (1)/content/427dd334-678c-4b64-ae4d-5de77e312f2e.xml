@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>59fda9af-d392-4f24-99a7-d529b39ea8c0</versionUuid>
+    <interface>
+        <name>WEC_WeatherForecast_Form</name>
+        <uuid>427dd334-678c-4b64-ae4d-5de77e312f2e</uuid>
+        <description>Create/Update form for WeatherForecast</description>
+        <parentUuid>1dd9f16f-b404-40e4-8d8f-315fe9df0c70</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#&quot;SYSTEM_SYSRULES_formLayout&quot;(
+  titleBar: #&quot;SYSTEM_SYSRULES_headerTemplateSimple&quot;(
+    title: &quot;Create / Update WeatherForecast&quot;,
+    secondaryText: &quot;Fill in the fields below and click Save.&quot;
+  ),
+  contents: {
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;cityName&quot;, value: ri!record.cityName, saveInto: ri!record.cityName, required: true),
+    #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(label: &quot;longitude&quot;, value: ri!record.longitude, saveInto: ri!record.longitude),
+    #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(label: &quot;latitude&quot;, value: ri!record.latitude, saveInto: ri!record.latitude),
+    #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(label: &quot;temperature&quot;, value: ri!record.temperature, saveInto: ri!record.temperature),
+    #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(label: &quot;temperatureMin&quot;, value: ri!record.temperatureMin, saveInto: ri!record.temperatureMin),
+    #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(label: &quot;temperatureMax&quot;, value: ri!record.temperatureMax, saveInto: ri!record.temperatureMax),
+    #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(label: &quot;feelsLike&quot;, value: ri!record.feelsLike, saveInto: ri!record.feelsLike),
+    #&quot;SYSTEM_SYSRULES_integerField&quot;(label: &quot;pressure&quot;, value: ri!record.pressure, saveInto: ri!record.pressure),
+    #&quot;SYSTEM_SYSRULES_integerField&quot;(label: &quot;humidity&quot;, value: ri!record.humidity, saveInto: ri!record.humidity),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;weatherCondition&quot;, value: ri!record.weatherCondition, saveInto: ri!record.weatherCondition, required: true),
+    #&quot;SYSTEM_SYSRULES_paragraphField&quot;(label: &quot;weatherDescription&quot;, value: ri!record.weatherDescription, saveInto: ri!record.weatherDescription, height: &quot;SHORT&quot;),
+    #&quot;SYSTEM_SYSRULES_textField&quot;(label: &quot;weatherIcon&quot;, value: ri!record.weatherIcon, saveInto: ri!record.weatherIcon, required: false),
+    #&quot;SYSTEM_SYSRULES_floatingPointField&quot;(label: &quot;windSpeed&quot;, value: ri!record.windSpeed, saveInto: ri!record.windSpeed),
+    #&quot;SYSTEM_SYSRULES_integerField&quot;(label: &quot;windDegree&quot;, value: ri!record.windDegree, saveInto: ri!record.windDegree),
+    #&quot;SYSTEM_SYSRULES_integerField&quot;(label: &quot;cloudiness&quot;, value: ri!record.cloudiness, saveInto: ri!record.cloudiness),
+    #&quot;SYSTEM_SYSRULES_dateTimeField&quot;(label: &quot;forecastTimestamp&quot;, value: ri!record.forecastTimestamp, saveInto: ri!record.forecastTimestamp)
+  },
+  buttons: #&quot;SYSTEM_SYSRULES_buttonLayout&quot;(
+    primaryButtons: {
+      #&quot;SYSTEM_SYSRULES_buttonWidget_v1&quot;(label: &quot;Save&quot;, submit: true, style: &quot;PRIMARY&quot;)
+    },
+    secondaryButtons: {
+      #&quot;SYSTEM_SYSRULES_buttonWidget_v1&quot;(label: &quot;Cancel&quot;, value: true, saveInto: ri!cancel, submit: true, validate: false)
+    }
+  )
+)</definition>
+        <namedTypedValue>
+            <name>record</name>
+            <type>
+                <name>WEC_WEATHERFORECAST</name>
+                <namespace>urn:com:appian:types:WEC</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="authors"><users/><groups/></role>
+        <role inherit="true" allowForAll="false" name="administrators"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyReaders"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAuthors"><users/><groups/></role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators"><users/><groups/></role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="59fda9af-d392-4f24-99a7-d529b39ea8c0"/>
+    </history>
+</contentHaul>
