@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6993463</versionUuid>
+    <interface>
+        <name>WS_ReviewArtifacts</name>
+        <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6991951</uuid>
+        <description>interface to show deployed artifacts and their status</description>
+        <parentUuid>1cbdd368-c34e-4520-a8e6-8c346cb905b9</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_cardLayout"(
+    showBorder: true,
+    showShadow: true,
+    shape: "ROUNDED",
+    contents: {
+      #"SYSTEM_SYSRULES_gridField_v6"(
+        label: "Deployed Artifacts",
+        labelPosition: "ABOVE",
+        data: #"SYSTEM_SYSRULES_recordData"(
+          recordType: #"urn:appian:record-type:v1:d99e8dd8-0441-4631-84ac-e937ced5486d",
+          fields: {},
+          filters: #"SYSTEM_SYSRULES_queryFilter"(
+            field: #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/db0a2e7d-a13f-4c1a-aeff-413a6cc48338",
+            operator: "=",
+            value: ri!deploymentId,
+            applyWhen: a!isNotNullOrEmpty(ri!deploymentId)
+          )
+          
+        ),
+        showRefreshButton: false,
+        showSearchBox: false,
+        columns: {
+          #"SYSTEM_SYSRULES_gridColumn"(
+            align: "CENTER",
+            label: "Id",
+            value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+              align: "CENTER",
+              value: {
+                #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text: if(
+                    fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/07cf775d-6e6a-4883-82f0-105d320e193a"] &lt; 100000,
+                    text(
+                      fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/07cf775d-6e6a-4883-82f0-105d320e193a"],
+                      "#"
+                    ),
+                    fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/07cf775d-6e6a-4883-82f0-105d320e193a"]
+                  )
+                )
+              }
+            ),
+            sortField: #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/07cf775d-6e6a-4883-82f0-105d320e193a"
+          ),
+          #"SYSTEM_SYSRULES_gridColumn"(
+            label: "Artifact Name",
+            value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+              preventWrapping: true,
+              value: a!localVariables(
+                local!getObjectDetails:#"_a-0000ef9b-7283-8000-9c82-011c48011c48_6803078"(
+                  uuid: fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/9415647a-a9d9-4648-8e0d-2451af814543"]
+                ),
+                #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text:index(
+                    local!getObjectDetails,
+                    "name",
+                    null
+                  )
+                )
+            )
+          )
+          ),
+          #"SYSTEM_SYSRULES_gridColumn"(
+            label: "Artifact Name",
+            value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+              preventWrapping: true,
+              value: a!localVariables(
+                local!getObjectDetails:#"_a-0000ef9b-7283-8000-9c82-011c48011c48_6803078"(
+                  uuid: fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/9415647a-a9d9-4648-8e0d-2451af814543"]
+                ),
+                #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text:index(
+                    local!getObjectDetails,
+                    "type",
+                    null
+                  )
+                )
+              )
+            )
+          ),
+          #"SYSTEM_SYSRULES_gridColumn"(
+            label: "Status",
+            value: if(
+              fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/69f57d0b-6bf5-4b20-abae-e21c2a8332b9"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988920"[1],
+              #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988926"[1],
+              #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988926"[2]
+            ),
+            sortField: #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/69f57d0b-6bf5-4b20-abae-e21c2a8332b9"
+          )
+        },
+        refreshAfter: "RECORD_ACTION",
+        validations: {}
+      )
+      
+      
+    },
+    marginBelow: "STANDARD",
+    height: "AUTO",
+    style: "TRANSPARENT"
+  )
+}</definition>
+        <namedTypedValue>
+            <name>deploymentId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6992382"/>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6992712"/>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6993463"/>
+    </history>
+</contentHaul>
