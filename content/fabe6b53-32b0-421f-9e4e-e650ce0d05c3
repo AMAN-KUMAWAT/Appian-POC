@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0000ef9b-7283-8000-9c82-011c48011c48_6870835</versionUuid>
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6990116</versionUuid>
     <interface>
-        <name>WS_CreateInventoryTransaction</name>
-        <uuid>fabe6b53-32b0-421f-9e4e-e650ce0d05c3</uuid>
-        <description>Form interface for creating new Inventory Transactions as an action</description>
+        <name>WS_AppianPckagesTest</name>
+        <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6986199</uuid>
+        <description>interface to test extraction of packages</description>
         <parentUuid>1cbdd368-c34e-4520-a8e6-8c346cb905b9</parentUuid>
         <visibility>
             <advertise>false</advertise>
@@ -16,226 +16,265 @@
             <unlogged>false</unlogged>
         </visibility>
         <definition>a!localVariables(
-  local!transactionType:1,
-  local!stockForProduct:#"_a-0000ef9b-7283-8000-9c82-011c48011c48_6870735"(
-    productId: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/73a4b807-8117-4ce4-8c30-f579492c48e6"]
+  local!selectedApplication,
+  local!getAllPackagesFromApplication: a!refreshVariable(
+    value: #"84c6682e-38fa-4d18-bafb-c5e20f3e4389"(
+      appUuid: local!selectedApplication
+    ).result.body.packages,
+    refreshOnVarChange: local!selectedApplication
   ),
-  #"SYSTEM_SYSRULES_formLayout_v2"(
-  contents: {
-    #"SYSTEM_SYSRULES_columnsLayout"(
-      columns: {
-        #"SYSTEM_SYSRULES_columnLayout"(
-          contents: {}
-        ),
-        #"SYSTEM_SYSRULES_columnLayout"(
-          contents: {
-            #"SYSTEM_SYSRULES_ButtonArrayLayout"(
-              buttons: {
-                #"SYSTEM_SYSRULES_buttonWidget_v1"(
-                  label: "➘ Stock In",
-                    saveInto: {
-                      a!save(
-                        local!transactionType,1
-                      ),
-                      a!save(
-                        ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/aaed3aae-4260-4495-b795-fb0ffbc2b783"],"IN"
-                      )
-                    },
-                    color: if(
-                      or(local!transactionType=1),
-                      "#008000",
-                      ""
-                    ),
-                  style: if(
-                    local!transactionType=1,
-                    "SOLID",
-                    "OUTLINE")
-                  
-                )
-              },
-              marginBelow: "NONE",
-              align: "END"
-            )
-          }
-        ),
-        #"SYSTEM_SYSRULES_columnLayout"(
-          contents: {
-            #"SYSTEM_SYSRULES_ButtonArrayLayout"(
-              buttons: {
-                #"SYSTEM_SYSRULES_buttonWidget_v1"(
-                  label: "➚ Stock out",
-                    saveInto: {
-                      a!save(
-                        local!transactionType,2
-                      ),
-                      a!save(
-                        ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/aaed3aae-4260-4495-b795-fb0ffbc2b783"],"OUT"
-                      ),a!save(
-                        ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/da4e2d9c-59ff-4d5b-9e4d-009853080ff8"],
-                        null
-                      )
-                    },
-                    color: if(
-                      or(local!transactionType=2),
-                      "NEGATIVE",
-                      ""
-                    ),
-                  style: if(
-                    local!transactionType=2,
-                    "SOLID",
-                    "OUTLINE")
-                )
-              },
-              marginBelow: "NONE",
-              align: "START"
-            )
-          }
-        ),
-        #"SYSTEM_SYSRULES_columnLayout"(
-          contents: {}
-        )
-      }
-    ),
-    #"SYSTEM_SYSRULES_dropdownField_v1"(
-      label: #"urn:appian:record-field-properties:v1:d73345d4-10de-411c-a7c1-3d96182741bd/73a4b807-8117-4ce4-8c30-f579492c48e6/displayName",
-      labelPosition: "ABOVE",
-      placeholder: "Select a product",
-      data: #"urn:appian:record-type:v1:534ca3d6-c7b7-4a48-a663-e78e834753e0",
-      value: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/73a4b807-8117-4ce4-8c30-f579492c48e6"],
-      saveInto: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/73a4b807-8117-4ce4-8c30-f579492c48e6"],
-      choiceLabels: #"urn:appian:record-field:v1:534ca3d6-c7b7-4a48-a663-e78e834753e0/11668e2f-c862-4a84-97d2-335a0d6e7f1b",
-      choiceValues: #"urn:appian:record-field:v1:534ca3d6-c7b7-4a48-a663-e78e834753e0/deb592fa-1fa0-4759-9f08-7fa2e8ed28a2",
-      required: true,
-      searchDisplay: "AUTO"
-    ),
-    #"SYSTEM_SYSRULES_messageBanner"(
-      secondaryText: concat("Available Stock: ",local!stockForProduct),
-      backgroundColor: if(
-        local!stockForProduct=0,
-        "WARN",
-        ""
-      ),
-      highlightColor: "INFO",
-      icon: "info-circle",
-      showWhen: a!isNotNullOrEmpty(ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/73a4b807-8117-4ce4-8c30-f579492c48e6"])
-    ),
-    #"SYSTEM_SYSRULES_integerField"(
-      label: #"urn:appian:record-field-properties:v1:d73345d4-10de-411c-a7c1-3d96182741bd/b76ae3c0-43c2-4bf3-89c6-1296863f4339/displayName",
-      labelPosition: "ABOVE",
-      value: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/b76ae3c0-43c2-4bf3-89c6-1296863f4339"],
-      saveInto: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/b76ae3c0-43c2-4bf3-89c6-1296863f4339"],
-      required: true,
-      marginAbove: "LESS",
-      validations: {
-        if(
-          and(
-            local!transactionType=2,
-            ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/b76ae3c0-43c2-4bf3-89c6-1296863f4339"]&gt;local!stockForProduct,
-          ),
-        if(
-          ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/b76ae3c0-43c2-4bf3-89c6-1296863f4339"]&gt;local!stockForProduct,
-          "Cannot remove more than available stock",
-          ""
-        ),
-        null
-        )
-      }
-    ),
-    #"SYSTEM_SYSRULES_dropdownField_v1"(
-      label: #"urn:appian:record-field-properties:v1:d73345d4-10de-411c-a7c1-3d96182741bd/da4e2d9c-59ff-4d5b-9e4d-009853080ff8/displayName",
-      labelPosition: "ABOVE",
-      placeholder: "-Select Supplier-",
-      data: #"urn:appian:record-type:v1:a3d8b1d8-4773-42ee-8734-31e6e4b70e4e",
-      value: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/da4e2d9c-59ff-4d5b-9e4d-009853080ff8"],
-      saveInto: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/da4e2d9c-59ff-4d5b-9e4d-009853080ff8"],
-      choiceLabels: #"urn:appian:record-field:v1:a3d8b1d8-4773-42ee-8734-31e6e4b70e4e/3cb8d356-c065-4c3a-9d8d-ba27ca032683",
-      choiceValues: #"urn:appian:record-field:v1:a3d8b1d8-4773-42ee-8734-31e6e4b70e4e/ab55726a-8766-4b6e-bf30-9564233a879d",
-      showWhen: or(local!transactionType=1),
-      required: true,
-      marginAbove: "LESS"
-    ),
-    #"SYSTEM_SYSRULES_paragraphField"(
-      label: #"urn:appian:record-field-properties:v1:d73345d4-10de-411c-a7c1-3d96182741bd/6fd99399-645a-4052-8c47-afca3648e3b0/displayName",
-      labelPosition: "ABOVE",
-      value: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/6fd99399-645a-4052-8c47-afca3648e3b0"],
-      saveInto: ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/6fd99399-645a-4052-8c47-afca3648e3b0"],
-      characterLimit: 255,
-      showCharacterCount: false,
-      marginAbove: "LESS",
-      height: "SHORT"
+
+  local!selectedPackage,
+  local!applicationsNameandUUId:#"SYSTEM_SYSRULES_forEach"(
+    items: #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6986322",
+    expression: #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6986417"(
+      contentDetails: getcontentobjectdetailsbyid(
+        fv!item
+      )
     )
-  },
-  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
-    primaryButtons: {
-      #"SYSTEM_SYSRULES_buttonWidget_v1"(
-        label: if(
-         local!transactionType=1, 
-          "Add Stock",
-        "Remove Stock"),
-        saveInto: {
-          a!save(
-            ri!inventoryTransaction,
-            #"urn:appian:function:v1:a:update"(
-              data: ri!inventoryTransaction,
-              index: {
-                #"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/46c03ac1-7d42-4403-ac05-a85bd2fce670",
-                #"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/ba173c76-0dec-4316-b2db-bf906d9eec10",
-                #"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/408180a9-fa99-4270-a0ac-69a94684bc4d",
-                #"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/aaed3aae-4260-4495-b795-fb0ffbc2b783"
-              },
-              value: {
-                now(),
-                loggedInUser(),
-                now(),
-                if(
-                  or(local!transactionType=1),
-                  "IN",
-                  ri!inventoryTransaction[#"urn:appian:record-field:v1:d73345d4-10de-411c-a7c1-3d96182741bd/aaed3aae-4260-4495-b795-fb0ffbc2b783"]
-                )
-              }
+  ),
+  local!isPushButtonDisabled:a!refreshVariable(
+    value: #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6989081"(
+      SelectedPackageName: ri!SelectedPackageName,
+      SelectedApplicationName: ri!SelectedApplicationName
+    ),
+    refreshOnVarChange: ri!SelectedPackageName
+  ),
+  {
+    #"SYSTEM_SYSRULES_cardLayout"(
+      contents: {
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: {
+            #"SYSTEM_SYSRULES_richTextItem_v1"(
+              text: "📦 Export Application Package",
+              size: "LARGE",
+              style: "STRONG"
             )
+          },
+          align: "CENTER"
+        ),
+
+        #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: {
+            #"SYSTEM_SYSRULES_richTextItem_v1"(
+              text: "Select an application package and export it as a ZIP file.",
+              color: "SECONDARY"
+            )
+          },
+          marginBelow: "STANDARD",
+          align: "CENTER"
+        ),
+        #"SYSTEM_SYSRULES_sectionLayout_v1"(
+          label: "Application Selection",
+          contents: {
+            #"SYSTEM_SYSRULES_dropdownField_v1"(
+              labelPosition: "ABOVE",
+              placeholder: "--- Select an Application ---",
+              choiceLabels: index(
+                local!applicationsNameandUUId,
+                "name",null
+              ),
+              choiceValues: index(
+                local!applicationsNameandUUId,
+                "uuid",null
+              ),
+              validations: {},
+              searchDisplay: "AUTO",
+              saveInto: {
+                local!selectedApplication,
+                a!save(
+                  ri!SelectedApplicationName,
+                  index(index(
+                    local!applicationsNameandUUId,
+                    wherecontains(
+                      save!value,
+                      index(
+                        local!applicationsNameandUUId,
+                        "uuid",null
+                      )
+                    ),
+                    {}
+                  ),"name",{})
+                )
+                },
+              value: local!selectedApplication
+            )
+            
+          }
+        ),
+
+        #"SYSTEM_SYSRULES_sectionLayout_v1"(
+          label:"Application Packages",
+          contents: {
+            #"SYSTEM_SYSRULES_dropdownField_v1"(
+              labelPosition: "ABOVE",
+              placeholder: "--- Select a Package ---",
+              value: ri!SelectedPackageUUID,
+              saveInto:
+                {
+                  ri!SelectedPackageUUID,
+                  a!save(
+                    ri!SelectedPackageName,
+                    index(index(
+                      local!getAllPackagesFromApplication,
+                      wherecontains(
+                        save!value,
+                        index(
+                          local!getAllPackagesFromApplication,
+                          "uuid",null
+                        )
+                      ),
+                      {}
+                    ),"name",{})
+                  )
+                  
+                  },
+              choiceLabels: index(
+                local!getAllPackagesFromApplication,
+                "name",
+                null
+              ),
+              choiceValues: index(
+                local!getAllPackagesFromApplication,
+                "uuid",
+                null
+              ),
+              validations: {},
+              searchDisplay: "AUTO"
+            )
+          }
+        ),
+
+        if(
+          isnull(ri!SelectedPackageUUID),
+          {},
+          #"SYSTEM_SYSRULES_cardLayout"(
+            contents: {
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value: {
+                  #"SYSTEM_SYSRULES_richTextIcon"(
+                    icon: if(
+                      local!isPushButtonDisabled,
+                      "exclamation-circle",
+                      "check-circle"
+                    ),
+                    
+                    color: if(
+                      local!isPushButtonDisabled,
+                      "NEGATIVE",
+                      "POSITIVE"
+                    )
+                  ),
+                  if(
+                    local!isPushButtonDisabled,
+                    " Selected Package Already Pushed",
+                    " Package selected and ready for export."
+                  )
+                }
+              )
+            },
+            marginAbove: "STANDARD",
+            style: "SUCCESS",
+            decorativeBarColor: if(local!isPushButtonDisabled,"#FF0000","#4169E1"),
+            decorativeBarPosition: "START",
+            shape: "ROUNDED",
+            
+            
           )
-        },
-        validate: true,
-        submit: true,
-        style: "SOLID"
-      )
-    },
-    secondaryButtons: {
-      #"SYSTEM_SYSRULES_buttonWidget_v1"(
-        label: "Cancel",
-        value: true,
-        saveInto: ri!cancel,
-        validate: false,
-        submit: true,
-        style: "OUTLINE"
-      )
-    }
-  ),
-  isTitleBarFixed: true,
-  titleBar: #"SYSTEM_SYSRULES_headerTemplateImage"(
-    title: "Create Inventory Transaction",
-    secondaryText: "Enter details for the inventory transaction",
-    backgroundColor: "#F4F5F6",
-    image: #"SYSTEM_SYSRULES_documentImage"(#"SYSTEM_SYSRULES_EXAMPLE_TITLE_BAR_IMAGE"())
-  ),
-  contentsWidth: "FULL",
-  backgroundColor: "#FFFFFF",
-  showTitleBarDivider: false
-))</definition>
+        )
+      },
+      marginBelow: "STANDARD",
+      style: "STANDARD",
+      showBorder: true,
+      padding: "MORE",
+      shape: "ROUNDED"
+    ),
+
+    #"SYSTEM_SYSRULES_ButtonArrayLayout"(
+      buttons: {
+        #"SYSTEM_SYSRULES_buttonWidget_v1"(
+          label: "Cancel",
+          value: "CANCEL",
+          saveInto: {
+            a!save(
+              ri!ButtonAction,
+              "CANCEL"
+            )
+          },
+          submit: true,
+          style: "OUTLINE"
+        ),
+
+        #"SYSTEM_SYSRULES_buttonWidget_v1"(
+          tooltip: if(
+            a!isNullOrEmpty(
+              ri!SelectedApplicationName
+            ),
+            "Please Select an Application",
+            if(
+
+              a!isNullOrEmpty(
+                ri!SelectedPackageName
+              ),
+              "Please Select a Package",
+              null
+            )
+          ),
+          disabled: local!isPushButtonDisabled,
+          label: "PUSH TO GIT",
+          value: "EXPORT",
+          saveInto: {
+            a!save(
+              ri!ButtonAction,
+              "EXPORT"
+            ),
+            a!save(
+              local!selectedPackage,
+              index(
+                local!getAllPackagesFromApplication,
+              1,
+              null)
+            )
+          },
+          submit: true,
+          style: "OUTLINE"
+        )
+      },
+      align: "END"
+    )
+  }
+)</definition>
         <namedTypedValue>
-            <name>inventoryTransaction</name>
+            <name>SelectedPackageUUID</name>
             <type>
-                <name>d73345d4-10de-411c-a7c1-3d96182741bd</name>
-                <namespace>urn:com:appian:recordtype:datatype</namespace>
-            </type>
-        </namedTypedValue>
-        <namedTypedValue>
-            <name>cancel</name>
-            <type>
-                <name>boolean</name>
+                <name>string</name>
                 <namespace>http://www.w3.org/2001/XMLSchema</namespace>
             </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>ButtonAction</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>SelectedPackageName</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>SelectedApplicationName</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
         </namedTypedValue>
         <preferredEditor>interface</preferredEditor>
         <offlineEnabled>false</offlineEnabled>
@@ -268,7 +307,7 @@
         </role>
     </roleMap>
     <history>
-        <historyInfo versionUuid="b7c53f88-dc1b-400d-ad75-5ebb2140c985"/>
-        <historyInfo versionUuid="_a-0000ef9b-7283-8000-9c82-011c48011c48_6870835"/>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6986573"/>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6990116"/>
     </history>
 </contentHaul>
