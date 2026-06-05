@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6993463</versionUuid>
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6994558</versionUuid>
     <interface>
         <name>WS_ReviewArtifacts</name>
         <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6991951</uuid>
@@ -95,11 +95,30 @@
             )
           ),
           #"SYSTEM_SYSRULES_gridColumn"(
+            label: "Artifact UUID",
+            value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+              preventWrapping: true,
+              tooltip: fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/9415647a-a9d9-4648-8e0d-2451af814543"],
+              value: #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text:fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/9415647a-a9d9-4648-8e0d-2451af814543"]
+                )
+          )
+          ),
+          #"SYSTEM_SYSRULES_gridColumn"(
             label: "Status",
-            value: if(
-              fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/69f57d0b-6bf5-4b20-abae-e21c2a8332b9"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988920"[1],
-              #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988926"[1],
-              #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988926"[2]
+            value: #"SYSTEM_SYSRULES_tagField"(
+              tags: #"SYSTEM_SYSRULES_tagItem_v1"(
+                text:if(
+                  fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/69f57d0b-6bf5-4b20-abae-e21c2a8332b9"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988920"[1],
+                  #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988926"[1],
+                  #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988926"[2]
+                ),
+                backgroundColor: if(
+                  fv!row[#"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/69f57d0b-6bf5-4b20-abae-e21c2a8332b9"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988920"[1],
+                  "#FF0000",
+                  "#008000"
+                )
+              )
             ),
             sortField: #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/69f57d0b-6bf5-4b20-abae-e21c2a8332b9"
           )
@@ -156,5 +175,6 @@
         <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6992382"/>
         <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6992712"/>
         <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6993463"/>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6994558"/>
     </history>
 </contentHaul>
