@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000ee34-a985-8000-9c6f-011c48011c48_6326118</versionUuid>
+    <interface>
+        <name>WS_calender</name>
+        <uuid>_a-0000ee34-a985-8000-9c6f-011c48011c48_6325450</uuid>
+        <description></description>
+        <parentUuid>1cbdd368-c34e-4520-a8e6-8c346cb905b9</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!todayDay:day(today()),
+  local!todayYear:year(today()),
+  local!todayDate:today(),
+  local!todayMonth:month(today()),
+  local!currentMonth:month(today()),
+  local!currentYear:year(today()),
+  local!iterativeMonth:month(today()),
+  local!iterativeYear:year(today()),
+  local!daysOfMonth:{
+    January:31,
+    February:if(isleapyear(local!currentYear),29,28),
+    March:31,
+    April:30,
+    May:31,
+    June:30,
+    July:31,
+    August:31,
+    September:30,
+    October:31,
+    November:30,
+    December:31
+  },
+  local!weekDayIndex:{
+    Sunday:0,
+    Monday:1,
+    Tuesday:2,
+    Wednesday:3,
+    Thursday:4,
+    Friday:5,
+    Saturday:6
+  },
+  local!firstWeekDay:text(date(local!iterativeYear,local!iterativeMonth,1),"dddd"),
+  local!months:a!keys(local!daysOfMonth),
+  local!daysForSelectedMonth:index(
+    local!daysOfMonth,
+    index(local!months,local!iterativeMonth)
+  ),
+  local!enumerateDays:enumerate(local!daysForSelectedMonth)+1,
+  local!firstWeekdayIndex:index(
+    local!weekDayIndex,
+    local!firstWeekDay,
+    null
+  ),
+  local!placeholders:#"SYSTEM_SYSRULES_forEach"(
+    items:enumerate(local!firstWeekdayIndex),
+    expression: ""
+  ),
+  local!finalArray:append(
+    local!placeholders,
+    local!enumerateDays
+  ),
+  {
+    #"SYSTEM_SYSRULES_cardLayout"(
+      showBorder: false,
+      padding: "LESS",
+      contents: {
+        #"SYSTEM_SYSRULES_sideBySideLayout"(
+          items:{
+            #"SYSTEM_SYSRULES_sideBySideItem"(
+              item:#"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text:index(
+                      local!months,
+                      local!iterativeMonth,
+                      null
+                    ),
+                    style: "STRONG"
+                  ),", ",
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: local!iterativeYear,
+                    style: "STRONG"
+                  )
+                }
+              )
+            ),
+            #"SYSTEM_SYSRULES_sideBySideItem"(
+              item:#"SYSTEM_SYSRULES_richTextDisplayField"(
+                align: "RIGHT",
+                value:{
+                  #"SYSTEM_SYSRULES_richTextIcon"(
+                    icon: "angle-up-bold",
+                    size: "MEDIUM",
+                    link: #"SYSTEM_SYSRULES_dynamicLink"(
+                      saveInto: {
+                        if(
+                          local!iterativeMonth=1,
+                          {
+                          a!save(
+                            local!iterativeMonth,
+                            12
+                          ),
+                          a!save(
+                            local!iterativeYear,
+                            local!iterativeYear-1
+                          )},
+                          a!save(
+                            local!iterativeMonth,
+                            local!iterativeMonth-1
+                          )
+                        ),
+                        
+                      }
+                    ),
+                  linkStyle: "STANDALONE",
+                  color: "#064232"),
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: "Today",
+                    size: "MEDIUM",
+                    link: #"SYSTEM_SYSRULES_dynamicLink"(),
+                    linkStyle: "STANDALONE",
+                    color: "#064232"
+                  ),
+                  #"SYSTEM_SYSRULES_richTextIcon"(
+                    icon: "angle-down-bold",
+                    size: "MEDIUM",
+                    link: #"SYSTEM_SYSRULES_dynamicLink"(
+                      saveInto: {
+                        if(
+                          local!iterativeMonth=12,{
+                          a!save(
+                            local!iterativeMonth,
+                            1
+                          ),
+                          a!save(
+                            local!iterativeYear,
+                            local!iterativeYear+1
+                          )},
+                          a!save(
+                            local!iterativeMonth,
+                            local!iterativeMonth+1
+                          )
+                        ),
+                       
+                      }
+                    ),
+                    linkStyle: "STANDALONE",color: "#064232"
+                  )
+                }
+              )
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_gridLayout"(
+    labelPosition: "ABOVE",
+    headerCells: {
+      #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Sun"),
+      #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Mon"),
+      #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Tue"),
+      #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Wed"),
+      #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Thu"),
+      #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Fri"),
+      #"SYSTEM_SYSRULES_gridLayoutHeaderCell"(label: "Sat"),
+    },
+    columnConfigs: {},
+    rows: {
+      #"SYSTEM_SYSRULES_forEach"(
+        items:enumerate(6),
+          expression: #"SYSTEM_SYSRULES_gridRowLayout"(
+            contents: {
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: index(
+                      local!finalArray,
+                      1+(7*fv!index-7),
+                      null
+                    ),
+                    color: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!currentYear,
+                        index(
+                          local!finalArray,
+                          1+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "ACCENT",
+                      {}
+                    ),
+                    size: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          1+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "MEDIUM",
+                      {}
+                    )
+                  )
+                }
+              ),
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: index(
+                      local!finalArray,
+                      2+(7*fv!index-7),
+                      null
+                    ),
+                    color: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          2+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "ACCENT",
+                      {}
+                    ),
+                    size: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          2+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "MEDIUM",
+                      {}
+                    )
+                  )
+                  
+                }
+              ),
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: index(
+                      local!finalArray,
+                      3+(7*fv!index-7),
+                      null
+                    ),
+                    color: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          3+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "ACCENT",
+                      {}
+                    ),
+                    size: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          3+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "MEDIUM",
+                      {}
+                    )
+                  )
+                }
+              ),
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: index(
+                      local!finalArray,
+                      4+(7*fv!index-7),
+                      null
+                    ),
+                    color: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          4+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "ACCENT",
+                      {}
+                    ),
+                    size: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          4+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "MEDIUM",
+                      {}
+                    )
+                  )
+                }
+              ),
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: index(
+                      local!finalArray,
+                      5+(7*fv!index-7),
+                      null
+                    ),
+                    color: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          5+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "ACCENT",
+                      {}
+                    ),
+                    size: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          5+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "MEDIUM",
+                      {}
+                    )
+                  )
+                }
+              ),
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: index(
+                      local!finalArray,
+                      6+(7*fv!index-7),
+                      null
+                    ),
+                    color: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          6+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "ACCENT",
+                      {}
+                    ),
+                    size: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          6+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "MEDIUM",
+                      {}
+                    )
+                  )
+                }
+              ),
+              #"SYSTEM_SYSRULES_richTextDisplayField"(
+                value:{
+                  #"SYSTEM_SYSRULES_richTextItem_v1"(
+                    text: index(
+                      local!finalArray,
+                      7+(7*fv!index-7),
+                      null
+                    ),
+                    color: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          7+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "ACCENT",
+                      {}
+                    ),
+                    size: if(
+                      and(
+                        local!currentMonth=local!iterativeMonth,
+                        local!currentYear=local!todayYear,
+                        index(
+                          local!finalArray,
+                          7+(7*fv!index-7),
+                          null
+                        )=local!todayDay
+                      ),
+                      "MEDIUM",
+                      {}
+                    )
+                  )
+                }
+              )
+            }
+          )
+      )
+    },
+    selectionSaveInto: {},
+    validations: {},
+    shadeAlternateRows: true
+  )
+      }
+    ),
+})</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000ee34-a985-8000-9c6f-011c48011c48_6326118"/>
+    </history>
+</contentHaul>
