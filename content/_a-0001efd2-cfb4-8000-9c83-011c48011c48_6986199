@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
-    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6996065</versionUuid>
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_7003895</versionUuid>
     <interface>
         <name>WS_AppianPckagesTest</name>
         <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6986199</uuid>
@@ -144,7 +144,10 @@
                 null
               ),
               validations: {},
-              searchDisplay: "AUTO"
+              searchDisplay: "AUTO",
+              disabled: a!isNullOrEmpty(
+                local!selectedApplication
+              )
             )
           }
         ),
@@ -314,5 +317,6 @@
         <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6986573"/>
         <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6990116"/>
         <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6996065"/>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_7003895"/>
     </history>
 </contentHaul>
