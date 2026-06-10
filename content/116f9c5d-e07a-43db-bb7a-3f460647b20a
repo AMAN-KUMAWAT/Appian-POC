@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiSkillRemoteHaul xmlns:a="http://www.appian.com/ae/types/2009">
+  <versionUuid>2a3656ac-4906-4d0f-ad73-8663d8520ed3</versionUuid>
+  <remoteDesignObject>
+    <uuid>116f9c5d-e07a-43db-bb7a-3f460647b20a</uuid>
+    <name>TNRF_Prompt</name>
+    <content><![CDATA[{"id":"116f9c5d-e07a-43db-bb7a-3f460647b20a","ai_skill_type":"generative_ai","models":[{"type":"genAI","id":"c42592ff-f4b8-4968-a922-0929bdc19815","model":"appian/anthropic.claude-haiku-4-5-20251001-v1:0","multimodal_model":"appian/anthropic.claude-sonnet-4-5-20250929-v1:0","operation_mode":"TEXT","prompt":"\n# Project Manager Prompt: Fibonacci Series Python Code Development\n\n## Project Brief\n\n**Objective:** Develop a Python application that generates and prints the Fibonacci series.\n\n**Scope:**\n- Create a Python script capable of generating Fibonacci numbers\n- Display the series in a user-friendly format\n- Include multiple implementation approaches\n\n---\n\n## AI Model Development Prompt\n\n```\nYou are a Python development expert. Create a comprehensive Python solution for generating and printing the Fibonacci series with the following requirements:\n\n1. **Primary Implementation:**\n   - Write a function that generates Fibonacci numbers up to a specified limit or count\n   - Include proper documentation and comments\n   - Handle edge cases (negative numbers, zero, etc.)\n\n2. **Multiple Approaches:**\n   - Iterative method (recommended for efficiency)\n   - Recursive method (for educational purposes)\n   - Generator function (for memory optimization)\n\n3. **Output Format:**\n   - Print the series in a clean, readable format\n   - Include a counter showing position in sequence\n   - Display execution time for performance comparison\n\n4. **User Interaction:**\n   - Accept user input for series length or limit value\n   - Include input validation\n   - Provide error handling\n\n5. **Code Quality:**\n   - Follow PEP 8 standards\n   - Include type hints\n   - Add unit test examples\n\n6. **Deliverables:**\n   - Complete, runnable Python code\n   - Usage examples\n   - Performance notes comparing different methods\n```\n\n---\n\n## Success Criteria\n✓ Code executes without errors  \n✓ Generates correct Fibonacci sequence  \n✓ Includes at least 2 different implementation methods  \n✓ Contains proper documentation  \n✓ Handles user input validation","temperature":50,"examples":[],"metadata":{},"extended_thinking":false,"template_version":2}],"featuresEnabled":["CUSTOM_ENTITY_EXTRACTION"]}]]></content>
+    <parameterizedProperties></parameterizedProperties>
+    <exportVersion>1.0.0</exportVersion>
+    </remoteDesignObject>
+  <roleMap>
+    <role name="VIEWER">
+      <users></users>
+      <groups>
+        <groupUuid>3b4a3967-18a3-44a1-8ffd-e8d59ac64940</groupUuid>
+        </groups>
+      </role>
+    <role name="ADMINISTRATOR">
+      <users></users>
+      <groups>
+        <groupUuid>5acec9ae-87f4-46d9-9a04-306b9134cbdc</groupUuid>
+        </groups>
+      </role>
+    </roleMap>
+  <history>
+    <historyInfo versionUuid="2a3656ac-4906-4d0f-ad73-8663d8520ed3"></historyInfo>
+    </history>
+  </aiSkillRemoteHaul>
