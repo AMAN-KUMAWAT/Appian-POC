@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_7026409</versionUuid>
+    <rule>
+        <name>WS_ExecuteSQL</name>
+        <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_7026308</uuid>
+        <description></description>
+        <parentUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6994331</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>if(
+  and(a!isnullOrEmpty(ri!InputString1)),
+  {
+    Success: false(),
+    Error: "No Query Provided",
+    InputQuery1: ri!InputString1
+  },
+  a!localVariables(
+    local!spResult: #"SYSTEM_SYSRULES_executeStoredProcedureForQuery"(
+      dataSource: #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_7026315",
+      procedureName: "WS_executeSQL",
+      inputs: {
+        name: "inputString",
+        value: ri!InputString1
+      }
+    ),
+    local!result: index(local!spResult, "results", null),
+    local!output: {
+      Success: index(local!spResult, "success", null),
+      Error: index(local!spResult, "errorMessage", null),
+      InputQuery: ri!InputString1,
+      Result: if(
+        a!isnullOrEmpty(ri!InputString1),
+        null,
+        index(local!result,1,{})
+      )
+    },
+    local!output
+  )
+)</definition>
+        <namedTypedValue>
+            <name>inputString1</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_7026409"/>
+    </history>
+</contentHaul>
