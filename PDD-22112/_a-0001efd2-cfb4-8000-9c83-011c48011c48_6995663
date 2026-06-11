@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6995856</versionUuid>
+    <rule>
+        <name>WS_checkExistingContentInGithub</name>
+        <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6995663</uuid>
+        <description>expression rule for checking existing uploads</description>
+        <parentUuid>1cbdd368-c34e-4520-a8e6-8c346cb905b9</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!uploadedFilesOnGithub:#"e198c683-ac95-4d28-a1ee-7307680611c2"().result.body.tree,
+  local!MappedData:if(
+  a!isNullOrEmpty(local!uploadedFilesOnGithub),
+  null,
+  reject(
+        fn!isnull(_),
+        #"SYSTEM_SYSRULES_forEach"(
+    items: local!uploadedFilesOnGithub,
+    expression: if(
+      index(
+        fv!item,"path",null
+      )="content",
+      null,
+      a!map(
+        objectName:trim(index(split(
+          index(fv!item,"path",null),"/"
+        ),2,null)),
+        sha:trim(index(fv!item,"sha",null))
+      )
+    )
+  ))),
+  index(index(
+    local!MappedData,
+    wherecontains(
+      ri!objectName,
+      index(local!MappedData,"objectName",null)
+    ),null
+  ),1,null)
+  
+)</definition>
+        <namedTypedValue>
+            <name>objectName</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name>Aman Test Case1</a:name>
+                <a:description/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">"fabe6b53-32b0-421f-9e4e-e650ce0d05c3"</a:value>
+                    <a:nameRef>objectName</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                <a:isDefault>true</a:isDefault>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6995856"/>
+    </history>
+</contentHaul>
