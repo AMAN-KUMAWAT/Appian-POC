@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_7013126</versionUuid>
+    <interface>
+        <name>WS_Deployment_DashBoard</name>
+        <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988324</uuid>
+        <description>Holds Dashboard for deployment managemnet</description>
+        <parentUuid>1cbdd368-c34e-4520-a8e6-8c346cb905b9</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_cardLayout"(
+  contents:{
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_richTextDisplayField"(
+              labelPosition: "COLLAPSED",
+              value: {
+                #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text: {
+                    #"SYSTEM_SYSRULES_richTextIcon"(
+                      icon: "code-fork"
+                    )
+                  },
+                  size: "LARGE",
+                  color: "#3d85c6",
+                  style: {
+                    "STRONG"
+                  }
+                ),
+                #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text: {
+                    " Deployment List"
+                  },
+                  size: "MEDIUM_PLUS",
+                  style: {
+                    "STRONG"
+                  }
+                )
+              },
+              marginAbove: "MORE",
+              marginBelow: "EVEN_LESS",
+              align: "LEFT"
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {}
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6990530"()
+          }
+        )
+      },
+      showDividers: false
+    ),
+    #"SYSTEM_SYSRULES_horizontalLine"(
+      weight: "MEDIUM"
+    ),
+    #"SYSTEM_SYSRULES_gridField_v6"(
+    labelPosition: "ABOVE",
+    data: #"SYSTEM_SYSRULES_recordData"(
+      recordType: #"urn:appian:record-type:v1:7b9ea405-1768-4649-983e-c61ea895fddc",
+      fields: {}
+    ),
+  
+    showRefreshButton: true,
+    showSearchBox: true,
+    similarityScoreThreshold: 1.0,
+  actionsStyle: "TOOLBAR_PRIMARY",
+    columns: {
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Id",
+        value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: {
+            #"SYSTEM_SYSRULES_richTextItem_v1"(
+              text: if(
+                fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3ca011c4-788f-4bf8-8efa-28d05d648f9c"] &lt; 100000,
+                text(
+                  fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3ca011c4-788f-4bf8-8efa-28d05d648f9c"],
+                  "#PCK000"
+                ),
+                fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3ca011c4-788f-4bf8-8efa-28d05d648f9c"]
+              ),
+              link: #"SYSTEM_SYSRULES_recordLink"(
+                recordType: #"urn:appian:record-type:v1:7b9ea405-1768-4649-983e-c61ea895fddc",
+                identifier: fv!identifier
+              ),
+              linkStyle: "STANDALONE"
+            )
+          }
+        ),
+        sortField: #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3ca011c4-788f-4bf8-8efa-28d05d648f9c"
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Application Name",
+        value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/b987f78a-50ae-48ce-9f0a-755afb0ae6c9"], "–"),
+        sortField: #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/b987f78a-50ae-48ce-9f0a-755afb0ae6c9"
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Package Name",
+        value: a!defaultValue(fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/cc23ffa8-74fd-4b27-bd6a-c2d66f9a0482"], "–"),
+        sortField: #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/cc23ffa8-74fd-4b27-bd6a-c2d66f9a0482"
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Status",
+        value: #"SYSTEM_SYSRULES_tagField"(
+          tags: {
+            #"SYSTEM_SYSRULES_tagItem_v1"(
+              text: if(
+                fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3a509ea5-7011-4385-abfb-9de30faf2c95"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988907"[1],
+                #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988914"[1],
+                if(
+                  fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3a509ea5-7011-4385-abfb-9de30faf2c95"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988907"[3],
+                  #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988914"[3],
+                  #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988914"[2]
+                )
+              ),
+              backgroundColor: if(
+                fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3a509ea5-7011-4385-abfb-9de30faf2c95"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988907"[1],
+/*                orange*/
+                "#FFA500",
+/*                green*/
+               if(
+                 fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3a509ea5-7011-4385-abfb-9de30faf2c95"]=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988907"[3],
+                 "#FF0000",
+                 "#008000"
+               )
+              )
+            )
+          }
+        ),
+        sortField: #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3a509ea5-7011-4385-abfb-9de30faf2c95",
+        align: "CENTER"
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Created",
+        value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: a!localVariables(
+            local!isTimeValueBlank: isnull(fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/ee225cba-b042-44bd-b4f8-18af88ee372b"]),
+            if(
+                local!isTimeValueBlank,
+              "–",
+              {
+                if(
+                  local!isTimeValueBlank,
+                  "–",
+                  a!defaultValue(
+                    text(
+                      fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/ee225cba-b042-44bd-b4f8-18af88ee372b"],"MMM/dd/yyyy"
+                    ),"-"
+                  )
+                )
+              }
+            )
+          )
+        ),
+        sortField: #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/ee225cba-b042-44bd-b4f8-18af88ee372b",
+        align: "START",
+        width: "NARROW_PLUS"
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Created By",
+        value: #"SYSTEM_SYSRULES_richTextDisplayField"(
+          value: a!localVariables(
+            local!isUserValueBlank: isnull(fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/4b246f9d-f259-453c-b1eb-ca6703a21839/SYSTEM_RECORD_TYPE_USER_FIELD_username"]),
+            if(
+              local!isUserValueBlank,
+              "–",
+              {
+                #"SYSTEM_SYSRULES_richTextImage"(
+                  image: #"SYSTEM_SYSRULES_userImage_v1"(
+                    user: fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/4b246f9d-f259-453c-b1eb-ca6703a21839/SYSTEM_RECORD_TYPE_USER_FIELD_username"]
+                  )
+                ),
+                #"SYSTEM_SYSRULES_richTextItem_v1"(
+                  text: if(
+                    local!isUserValueBlank,
+                    "–",
+                    user(fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/4b246f9d-f259-453c-b1eb-ca6703a21839/SYSTEM_RECORD_TYPE_USER_FIELD_username"], "firstName") &amp; " " &amp; user(fv!row[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/4b246f9d-f259-453c-b1eb-ca6703a21839/SYSTEM_RECORD_TYPE_USER_FIELD_username"], "lastName")
+                  ),
+                  color: "SECONDARY"
+                )
+              }
+            )
+          )
+        ),
+        sortField: #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/83fe082f-467d-43d7-87d6-31ac46f974d9",
+        align: "START",
+        width: "NARROW_PLUS"
+      )
+    },
+      initialSorts: {
+        #"SYSTEM_SYSRULES_sortInfo"(
+          field: #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3ca011c4-788f-4bf8-8efa-28d05d648f9c",
+          ascending: false
+        )
+      },
+    pageSize: 10,
+  pagingControls: "ROW_COUNT",
+    refreshAfter: "RECORD_ACTION",
+    validations: {}
+  )},
+  showShadow: true,
+  showBorder: true,
+  padding: "EVEN_LESS",
+  shape: "ROUNDED")
+}</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_7013126"/>
+    </history>
+</contentHaul>
