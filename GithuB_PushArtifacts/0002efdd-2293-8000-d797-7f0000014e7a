@@ -1,0 +1,3891 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<processModelHaul>
+  <versionUuid>0001efe7-764c-8000-dac6-7f0000014e7a</versionUuid>
+  <folderUuid>a0adc241-3d2b-4870-95dc-ee2749851c86</folderUuid>
+  <roleMap>
+    <role name="ADMIN_OWNER">
+      <users/>
+      <groups>
+        <groupUuid>07b385f8-dfcb-4ee9-a0bb-657f55e8211e</groupUuid>
+      </groups>
+    </role>
+    <role name="EDITOR">
+      <users/>
+      <groups/>
+    </role>
+    <role name="EXPLICIT_NONMEMBER">
+      <users/>
+      <groups/>
+    </role>
+    <role name="VIEWER">
+      <users/>
+      <groups>
+        <groupUuid>8a262d6a-cddb-4ad0-9dd7-bfde1c0dc224</groupUuid>
+      </groups>
+    </role>
+    <role name="MANAGER">
+      <users/>
+      <groups/>
+    </role>
+    <role name="INITIATOR">
+      <users/>
+      <groups/>
+    </role>
+  </roleMap>
+  <process_model_port schemaVersion="007.000.004"
+    xmlns="http://www.appian.com/ae/types/2009"
+    xmlns:a="http://www.appian.com/ae/types/2009"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <pm>
+      <meta>
+        <uuid><![CDATA[0002efdd-2293-8000-d797-7f0000014e7a]]></uuid>
+        <name>
+          <string-map>
+            <pair>
+              <locale country="US" lang="en" variant=""/>
+              <value><![CDATA[WS Push To GitHub]]></value>
+            </pair>
+            <pair>
+              <locale country="FR" lang="fr" variant=""/>
+              <value/>
+            </pair>
+            <pair>
+              <locale country="" lang="nl" variant=""/>
+              <value/>
+            </pair>
+          </string-map>
+        </name>
+        <desc>
+          <string-map>
+            <pair>
+              <locale country="US" lang="en" variant=""/>
+              <value><![CDATA[Facilitates publishing Appian package artifacts to Git repositories through automated API-based integration.]]></value>
+            </pair>
+            <pair>
+              <locale country="FR" lang="fr" variant=""/>
+              <value/>
+            </pair>
+            <pair>
+              <locale country="" lang="nl" variant=""/>
+              <value/>
+            </pair>
+          </string-map>
+        </desc>
+        <versionStatus>2</versionStatus>
+        <process-name>
+          <string-map>
+            <pair>
+              <locale country="US" lang="en" variant=""/>
+              <value><![CDATA[WS Push To GitHub]]></value>
+            </pair>
+            <pair>
+              <locale country="FR" lang="fr" variant=""/>
+              <value/>
+            </pair>
+            <pair>
+              <locale country="" lang="nl" variant=""/>
+              <value/>
+            </pair>
+          </string-map>
+        </process-name>
+        <deadline>
+          <enabled>false</enabled>
+          <type>0</type>
+          <units>0</units>
+          <rex/>
+          <aex/>
+        </deadline>
+        <pm-notification-settings>
+          <custom-settings>true</custom-settings>
+          <notify-initiator>false</notify-initiator>
+          <notify-owner>false</notify-owner>
+          <usersandgroups>
+            <people>
+              <type>4097</type>
+              <stringId><![CDATA[rohitsaini@appcino.com]]></stringId>
+            </people>
+          </usersandgroups>
+          <recipients-exp/>
+        </pm-notification-settings>
+        <cleanup-action>2</cleanup-action>
+        <auto-archive-delay>7</auto-archive-delay>
+        <auto-delete-delay>1</auto-delete-delay>
+        <timeZoneId><![CDATA[GMT]]></timeZoneId>
+        <useProcessInitiatorTimeZone>true</useProcessInitiatorTimeZone>
+      </meta>
+      <pvs>
+        <pv name="ArtifactDetails">
+          <a:value xmlns:n1="urn:com:appian:recordtype:datatype"
+            xsi:nil="true" xsi:type="n1:d99e8dd8-0441-4631-84ac-e937ced5486d?list"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="Base64">
+          <a:value xmlns="" xsi:type="xsd:string"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="CurrentIndex">
+          <a:value xmlns="" xsi:type="xsd:int">0</a:value>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="DataFromGithub">
+          <a:value xsi:nil="true" xsi:type="a:Map"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="DeploymentId">
+          <a:value xmlns="" xsi:type="xsd:int">1</a:value>
+          <parameter>true</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="Error">
+          <a:value xsi:nil="true" xsi:type="a:IntegrationError"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="Result">
+          <a:value xsi:nil="true" xsi:type="a:HttpResponse"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="Success">
+          <a:value xsi:nil="true" xsi:type="xsd:boolean"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="TotalCount">
+          <a:value xmlns="" xsi:type="xsd:int">0</a:value>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="deploymentsDetails">
+          <a:value xmlns:n1="urn:com:appian:recordtype:datatype"
+            xsi:nil="true" xsi:type="n1:7b9ea405-1768-4649-983e-c61ea895fddc"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="updatedArtifact">
+          <a:value xmlns:n1="urn:com:appian:recordtype:datatype"
+            xsi:nil="true" xsi:type="n1:d99e8dd8-0441-4631-84ac-e937ced5486d"/>
+          <parameter>false</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+        <pv name="zipToExport">
+          <a:value xsi:nil="true" xsi:type="a:CollaborationDocument"/>
+          <parameter>true</parameter>
+          <required>false</required>
+          <hidden>false</hidden>
+        </pv>
+      </pvs>
+      <nodes>
+        <node uuid="0000efdd-2293-8000-d797-7f0000014e7a">
+          <guiId>0</guiId>
+          <owner/>
+          <icon id="50"/>
+          <picon id="0"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Start Node]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value><![CDATA[Start Node]]></value>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value><![CDATA[Start Node]]></value>
+              </pair>
+            </string-map>
+          </fname>
+          <x>56</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Start Node]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value><![CDATA[Start Node]]></value>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value><![CDATA[Start Node]]></value>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>core.0</local-id>
+            <name><![CDATA[Start Node]]></name>
+            <acps/>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>4</guiId>
+              <to>4</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0001efdd-2293-8000-d797-7f0000014e7a">
+          <guiId>1</guiId>
+          <owner/>
+          <icon id="51"/>
+          <picon id="0"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[End Node]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value><![CDATA[End Node]]></value>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value><![CDATA[End Node]]></value>
+              </pair>
+            </string-map>
+          </fname>
+          <x>1316</x>
+          <y>224</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[End Node]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value><![CDATA[End Node]]></value>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value><![CDATA[End Node]]></value>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>core.1</local-id>
+            <name><![CDATA[End Node]]></name>
+            <acps>
+              <acp name="pmID">
+                <a:value xsi:nil="true" xsi:type="a:ProcessModel"/>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="inMap">
+                <a:value xsi:nil="true" xsi:type="a:Bean?list"/>
+                <a:local-id>1</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="procInheritsPriority">
+                <a:value xmlns="" xsi:type="xsd:int">1</a:value>
+                <a:local-id>5</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="pmUUID">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>6</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="isAsynchronous">
+                <a:value xmlns="" xsi:type="xsd:boolean">true</a:value>
+                <a:local-id>7</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="isTransparent">
+                <a:value xmlns="" xsi:type="xsd:boolean">true</a:value>
+                <a:local-id>14</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="inheritSecurity">
+                <a:value xmlns="" xsi:type="xsd:boolean">false</a:value>
+                <a:local-id>15</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections/>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers>
+            <terminate-producer index="0">
+              <persistentId>0002efdd-24cb-8000-d79a-7f0000014e7a</persistentId>
+              <name><![CDATA[Terminate Process_1]]></name>
+              <desc/>
+            </terminate-producer>
+          </event-producers>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0001efde-1518-8000-d7ca-7f0000014e7a">
+          <guiId>6</guiId>
+          <owner/>
+          <icon id="51"/>
+          <picon id="34"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[End Event]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>140</x>
+          <y>224</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[End Event]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>true</overrideLaneAssignment>
+          <ac>
+            <local-id>core.1</local-id>
+            <name><![CDATA[End Node]]></name>
+            <acps>
+              <acp name="pmID">
+                <a:value xsi:nil="true" xsi:type="a:ProcessModel"/>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="inMap">
+                <a:value xsi:nil="true" xsi:type="a:Bean?list"/>
+                <a:local-id>1</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="procInheritsPriority">
+                <a:value xmlns="" xsi:type="xsd:int">1</a:value>
+                <a:local-id>5</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="pmUUID">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>6</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="isAsynchronous">
+                <a:value xmlns="" xsi:type="xsd:boolean">true</a:value>
+                <a:local-id>7</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="isTransparent">
+                <a:value xmlns="" xsi:type="xsd:boolean">true</a:value>
+                <a:local-id>14</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="inheritSecurity">
+                <a:value xmlns="" xsi:type="xsd:boolean">false</a:value>
+                <a:local-id>15</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections/>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers>
+            <terminate-producer index="0">
+              <persistentId>0007efde-1518-8000-d7ca-7f0000014e7a</persistentId>
+              <name><![CDATA[Terminate Process_2]]></name>
+              <desc/>
+            </terminate-producer>
+          </event-producers>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0003efde-1518-8000-d7ca-7f0000014e7a">
+          <guiId>2</guiId>
+          <owner/>
+          <icon id="68"/>
+          <picon id="69"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Set Loop]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>420</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Set Loop]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal.16</local-id>
+            <name><![CDATA[Unattended Multiple Questions]]></name>
+            <acps/>
+            <custom-params/>
+            <output-exprs>
+              <el typeFlag="0"><![CDATA[CurrentIndex:if(
+  a!isNullOrEmpty(pv!CurrentIndex),
+  1,
+  pv!CurrentIndex + 1
+)]]></el>
+            </output-exprs>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>21</guiId>
+              <to>20</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0004efde-1518-8000-d7ca-7f0000014e7a">
+          <guiId>9</guiId>
+          <owner/>
+          <icon id="58"/>
+          <picon id="59"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[is all done ?]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>1232</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[is all done ?]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>true</overrideLaneAssignment>
+          <ac>
+            <local-id>core.4</local-id>
+            <name><![CDATA[XOR]]></name>
+            <acps>
+              <acp name="defaultNode">
+                <a:value xmlns="" xsi:type="xsd:int">2</a:value>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="rules">
+                <a:value xmlns="" xsi:type="a:Bean?list">
+                  <a:acps>
+                    <a:acp name="rule">
+                      <a:value xsi:type="a:Bean">
+                        <a:acps>
+                          <a:acp name="expression">
+                            <a:value xsi:nil="true" xsi:type="xsd:boolean"/>
+                            <a:local-id>3</a:local-id>
+                            <a:expr><![CDATA[=pv!TotalCount = pv!CurrentIndex]]></a:expr>
+                            <a:required>0</a:required>
+                            <a:editable>1</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                          <a:acp name="node">
+                            <a:value xsi:type="xsd:int">11</a:value>
+                            <a:local-id>4</a:local-id>
+                            <a:expr/>
+                            <a:required>0</a:required>
+                            <a:editable>0</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                          <a:acp name="label">
+                            <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                            <a:local-id>5</a:local-id>
+                            <a:expr/>
+                            <a:required>0</a:required>
+                            <a:editable>0</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                        </a:acps>
+                      </a:value>
+                      <a:local-id>2</a:local-id>
+                      <a:expr/>
+                      <a:required>0</a:required>
+                      <a:editable>0</a:editable>
+                      <a:assign-to-pv/>
+                      <a:input-to-activity-class>true</a:input-to-activity-class>
+                      <a:hidden-from-designer>false</a:hidden-from-designer>
+                      <a:generated>false</a:generated>
+                      <a:enumeration/>
+                      <a:customDisplayReference/>
+                    </a:acp>
+                  </a:acps>
+                </a:value>
+                <a:local-id>1</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="fired">
+                <a:value xmlns="" xsi:type="xsd:int">0</a:value>
+                <a:local-id>6</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="arrivedNodes">
+                <a:value xsi:nil="true" xsi:type="a:Integer?list"/>
+                <a:local-id>7</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>19</guiId>
+              <to>2</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor>0</fromAnchor>
+              <toAnchor>0</toAnchor>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+            <connection>
+              <guiId>13</guiId>
+              <to>11</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0005efde-1518-8000-d7ca-7f0000014e7a">
+          <guiId>4</guiId>
+          <owner/>
+          <icon id="58"/>
+          <picon id="59"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[is Null ?]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>140</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[is Null ?]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>true</overrideLaneAssignment>
+          <ac>
+            <local-id>core.4</local-id>
+            <name><![CDATA[XOR]]></name>
+            <acps>
+              <acp name="defaultNode">
+                <a:value xmlns="" xsi:type="xsd:int">15</a:value>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="rules">
+                <a:value xmlns="" xsi:type="a:Bean?list">
+                  <a:acps>
+                    <a:acp name="rule">
+                      <a:value xsi:type="a:Bean">
+                        <a:acps>
+                          <a:acp name="expression">
+                            <a:value xsi:nil="true" xsi:type="xsd:boolean"/>
+                            <a:local-id>3</a:local-id>
+                            <a:expr><![CDATA[=a!isNullOrEmpty(pv!DeploymentId)]]></a:expr>
+                            <a:required>0</a:required>
+                            <a:editable>1</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                          <a:acp name="node">
+                            <a:value xsi:type="xsd:int">6</a:value>
+                            <a:local-id>4</a:local-id>
+                            <a:expr/>
+                            <a:required>0</a:required>
+                            <a:editable>0</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                          <a:acp name="label">
+                            <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                            <a:local-id>5</a:local-id>
+                            <a:expr/>
+                            <a:required>0</a:required>
+                            <a:editable>0</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                        </a:acps>
+                      </a:value>
+                      <a:local-id>2</a:local-id>
+                      <a:expr/>
+                      <a:required>0</a:required>
+                      <a:editable>0</a:editable>
+                      <a:assign-to-pv/>
+                      <a:input-to-activity-class>true</a:input-to-activity-class>
+                      <a:hidden-from-designer>false</a:hidden-from-designer>
+                      <a:generated>false</a:generated>
+                      <a:enumeration/>
+                      <a:customDisplayReference/>
+                    </a:acp>
+                  </a:acps>
+                </a:value>
+                <a:local-id>1</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="fired">
+                <a:value xmlns="" xsi:type="xsd:int">0</a:value>
+                <a:local-id>6</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="arrivedNodes">
+                <a:value xsi:nil="true" xsi:type="a:Integer?list"/>
+                <a:local-id>7</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>7</guiId>
+              <to>6</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor>2</fromAnchor>
+              <toAnchor>0</toAnchor>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>false</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+            <connection>
+              <guiId>20</guiId>
+              <to>15</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0006efde-1518-8000-d7ca-7f0000014e7a">
+          <guiId>20</guiId>
+          <owner/>
+          <icon id="68"/>
+          <picon id="69"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Set Document]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>532</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Set Document]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal.16</local-id>
+            <name><![CDATA[Unattended Multiple Questions]]></name>
+            <acps/>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>22</guiId>
+              <to>3</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0002efdd-317c-8000-d79b-7f0000014e7a">
+          <guiId>3</guiId>
+          <owner/>
+          <icon id="998"/>
+          <picon id="98"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Insert Doc. as Base64 into DB]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>616</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Insert Doc. as Base64 into DB]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>com.appiancorp.ps.db.insertbase64docintodb101</local-id>
+            <name><![CDATA[Insert Document as Base64 into Database]]></name>
+            <acps>
+              <acp name="JndiName">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>input-JndiName</a:local-id>
+                <a:expr><![CDATA[="jdbc/Appian"]]></a:expr>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="SqlStatement">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>input-SqlStatement</a:local-id>
+                <a:expr><![CDATA[="INSERT INTO WS_Base4Document (documentString,DEPLOYMENT_ID,ARTIFACT_ID) VALUES (:documentId,:deployementId,:artifactId)"]]></a:expr>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="errorMessage">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>output-errorMessage</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="isError">
+                <a:value xsi:nil="true" xsi:type="xsd:boolean"/>
+                <a:local-id>output-isError</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params>
+              <acp name="documentId">
+                <a:value xsi:nil="true" xsi:type="a:CollaborationDocument"/>
+                <a:local-id/>
+                <a:expr><![CDATA[=index(  pv!ArtifactDetails[pv!CurrentIndex],  #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/c610fd15-f1c4-4e3e-9624-d83e40c50d6c",  {})]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="artifactId">
+                <a:value xsi:nil="true" xsi:type="xsd:int"/>
+                <a:local-id/>
+                <a:expr><![CDATA[=index(  pv!ArtifactDetails[pv!CurrentIndex],  #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/07cf775d-6e6a-4883-82f0-105d320e193a",  {})]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="deployementId">
+                <a:value xsi:nil="true" xsi:type="xsd:int"/>
+                <a:local-id/>
+                <a:expr><![CDATA[=pv!DeploymentId]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </custom-params>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>8</guiId>
+              <to>7</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0003efdd-317c-8000-d79b-7f0000014e7a">
+          <guiId>7</guiId>
+          <owner/>
+          <icon id="68"/>
+          <picon id="69"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[GetBase64]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>728</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[GetBase64]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal.16</local-id>
+            <name><![CDATA[Unattended Multiple Questions]]></name>
+            <acps/>
+            <custom-params/>
+            <output-exprs>
+              <el typeFlag="0"><![CDATA[Base64:a!localVariables(
+  local!getBase64Result: executestoredprocedure(
+    dataSourceName: "jdbc/Appian",
+    procedureName: "GenericQuery",
+    inputs: {
+      {
+        name: "queryInput",
+        value: concat(
+          "SELECT documentString FROM WS_Base4Document where DEPLOYMENT_ID	 = ",
+          pv!DeploymentId,
+          " and ARTIFACT_ID = ",
+          index(
+            pv!ArtifactDetails[pv!CurrentIndex],
+            #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/07cf775d-6e6a-4883-82f0-105d320e193a",
+            {}
+          )
+        ),
+        
+      }
+    }
+  ).result,
+  if(
+    len(
+      touniformstring(
+        index(
+          local!getBase64Result,
+          "documentString",
+          {}
+        )
+      )
+    ) = 0,
+    {},
+    index(
+      local!getBase64Result,
+      "documentString",
+      {}
+    )
+  )
+)]]></el>
+            </output-exprs>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>5</guiId>
+              <to>13</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor>1</fromAnchor>
+              <toAnchor>3</toAnchor>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0001efde-3eb0-8000-d7f7-7f0000014e7a">
+          <guiId>11</guiId>
+          <owner/>
+          <icon id="155"/>
+          <picon id="155"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Update Deployment detils]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>1316</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Update Deployment detils]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal3.write_records_to_source_23r3</local-id>
+            <name><![CDATA[Write Records and Related Records]]></name>
+            <acps>
+              <acp name="Records">
+                <a:value xsi:nil="true" xsi:type="a:Variant?list"/>
+                <a:local-id>records</a:local-id>
+                <a:expr><![CDATA[={#"urn:appian:record-type:v1:7b9ea405-1768-4649-983e-c61ea895fddc"(
+  #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3ca011c4-788f-4bf8-8efa-28d05d648f9c": pv!DeploymentId,
+  #"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/3a509ea5-7011-4385-abfb-9de30faf2c95": #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988907"[2]
+)}]]></a:expr>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="PauseOnError">
+                <a:value xmlns="" xsi:type="xsd:boolean">true</a:value>
+                <a:local-id>pauseonerror</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="Version">
+                <a:value xmlns="" xsi:type="xsd:int">6</a:value>
+                <a:local-id>version</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="RecordType">
+                <a:value xsi:nil="true" xsi:type="a:RecordType2"/>
+                <a:local-id>recordtype</a:local-id>
+                <a:expr><![CDATA[={#"urn:appian:record-type:v1:7b9ea405-1768-4649-983e-c61ea895fddc"}]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="CaptureEvents">
+                <a:value xmlns="" xsi:type="xsd:boolean">false</a:value>
+                <a:local-id>captureevents</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="RecordsUpdated">
+                <a:value xsi:nil="true" xsi:type="a:Variant?list"/>
+                <a:local-id>recordsupdated</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="ErrorOccurred">
+                <a:value xsi:nil="true" xsi:type="xsd:boolean"/>
+                <a:local-id>erroroccurred</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="Error">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>errors</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="RecordEvents_ReferencedFieldsMetadata">
+                <a:value xmlns="" xsi:type="xsd:string">{}</a:value>
+                <a:local-id/>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>true</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+            </form-map>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>17</guiId>
+              <to>1</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0002efde-3eb0-8000-d7f7-7f0000014e7a">
+          <guiId>14</guiId>
+          <owner/>
+          <icon id="68"/>
+          <picon id="69"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Update Artifact Data]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>980</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Update Artifact Data]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal.16</local-id>
+            <name><![CDATA[Unattended Multiple Questions]]></name>
+            <acps/>
+            <custom-params/>
+            <output-exprs>
+              <el typeFlag="0"><![CDATA[updatedArtifact:a!localVariables(
+  local!artifactData:pv!ArtifactDetails[pv!CurrentIndex],
+  #"urn:appian:function:v1:a:update"(
+    local!artifactData,
+    #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/69f57d0b-6bf5-4b20-abae-e21c2a8332b9",
+    if(
+      a!isNullOrEmpty(pv!Error),
+      #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988920"[2],
+      #"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6988920"[1]
+    )
+  )
+)]]></el>
+            </output-exprs>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>18</guiId>
+              <to>8</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0003efde-3eb0-8000-d7f7-7f0000014e7a">
+          <guiId>8</guiId>
+          <owner/>
+          <icon id="155"/>
+          <picon id="155"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Update Artifact]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>1064</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Update Artifact]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal3.write_records_to_source_23r3</local-id>
+            <name><![CDATA[Write Records and Related Records]]></name>
+            <acps>
+              <acp name="Records">
+                <a:value xsi:nil="true" xsi:type="a:Variant?list"/>
+                <a:local-id>records</a:local-id>
+                <a:expr><![CDATA[={pv!updatedArtifact}]]></a:expr>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="PauseOnError">
+                <a:value xmlns="" xsi:type="xsd:boolean">true</a:value>
+                <a:local-id>pauseonerror</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="Version">
+                <a:value xmlns="" xsi:type="xsd:int">6</a:value>
+                <a:local-id>version</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="RecordType">
+                <a:value xsi:nil="true" xsi:type="a:RecordType2"/>
+                <a:local-id>recordtype</a:local-id>
+                <a:expr><![CDATA[={#"urn:appian:record-type:v1:d99e8dd8-0441-4631-84ac-e937ced5486d"}]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="CaptureEvents">
+                <a:value xmlns="" xsi:type="xsd:boolean">false</a:value>
+                <a:local-id>captureevents</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="RecordsUpdated">
+                <a:value xsi:nil="true" xsi:type="a:Variant?list"/>
+                <a:local-id>recordsupdated</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="ErrorOccurred">
+                <a:value xsi:nil="true" xsi:type="xsd:boolean"/>
+                <a:local-id>erroroccurred</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="Error">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>errors</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="RecordEvents_ReferencedFieldsMetadata">
+                <a:value xmlns="" xsi:type="xsd:string">{}</a:value>
+                <a:local-id/>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params/>
+            <output-exprs>
+              <el typeFlag="1"><![CDATA[updatedArtifact:AC!RecordsUpdated]]></el>
+            </output-exprs>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>true</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+            </form-map>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>1</guiId>
+              <to>5</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0001efdf-51e5-8000-d82f-7f0000014e7a">
+          <guiId>5</guiId>
+          <owner/>
+          <icon id="68"/>
+          <picon id="69"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Script Task]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>1148</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Script Task]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal.16</local-id>
+            <name><![CDATA[Unattended Multiple Questions]]></name>
+            <acps/>
+            <custom-params/>
+            <output-exprs>
+              <el typeFlag="0"><![CDATA[Error:null]]></el>
+              <el typeFlag="0"><![CDATA[DataFromGithub:null]]></el>
+            </output-exprs>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>2</guiId>
+              <to>9</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0002efde-1518-8000-d7ca-7f0000014e7a">
+          <guiId>15</guiId>
+          <owner/>
+          <icon id="68"/>
+          <picon id="69"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[ Get Artifacts]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>224</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[ Get Artifacts]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal.16</local-id>
+            <name><![CDATA[Unattended Multiple Questions]]></name>
+            <acps/>
+            <custom-params>
+              <acp name="ArtifactDetails">
+                <a:value xmlns:n1="urn:com:appian:recordtype:datatype"
+                  xsi:nil="true" xsi:type="n1:d99e8dd8-0441-4631-84ac-e937ced5486d?list"/>
+                <a:local-id/>
+                <a:expr><![CDATA[=#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6987101"(DeploymentId: pv!deploymentId)]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv><![CDATA[ArtifactDetails]]></a:assign-to-pv>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </custom-params>
+            <output-exprs>
+              <el typeFlag="0"><![CDATA[TotalCount:count(ac!ArtifactDetails)]]></el>
+              <el typeFlag="0"><![CDATA[deploymentsDetails:#"_a-0001efd2-cfb4-8000-9c83-011c48011c48_6987089"(
+  DeploymentId: pv!DeploymentId,
+  PagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(1,1),
+  ColumnSelection: #"SYSTEM_SYSRULES_selectionFields"(
+    allFieldsFromRecordType: #"urn:appian:record-type:v1:7b9ea405-1768-4649-983e-c61ea895fddc"
+  )
+)]]></el>
+            </output-exprs>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map/>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>14</guiId>
+              <to>18</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0004efdd-317c-8000-d79b-7f0000014e7a">
+          <guiId>13</guiId>
+          <owner/>
+          <icon id="202"/>
+          <picon id="202"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Call Integration - WS_Push_To_Github]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>868</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Call Integration - WS_Push_To_Github]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal3.integration</local-id>
+            <name><![CDATA[Call Integration]]></name>
+            <acps>
+              <acp name="Integration">
+                <a:value a:id="2c734731-5a81-49dc-b5d5-625faef62260"
+                  xmlns="" xsi:type="a:OutboundIntegration"/>
+                <a:local-id>Integration</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="Success">
+                <a:value xsi:nil="true" xsi:type="xsd:boolean"/>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="Result">
+                <a:value xsi:nil="true" xsi:type="a:HttpResponse"/>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="Error">
+                <a:value xsi:nil="true" xsi:type="a:IntegrationError"/>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="ConnectedSystem">
+                <a:value xsi:nil="true" xsi:type="a:ConnectedSystem"/>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params>
+              <acp name="fileName">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id/>
+                <a:expr><![CDATA[=index(  pv!ArtifactDetails[pv!CurrentIndex],  #"urn:appian:record-field:v1:d99e8dd8-0441-4631-84ac-e937ced5486d/9415647a-a9d9-4648-8e0d-2451af814543",  {})]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>true</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="base64">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id/>
+                <a:expr><![CDATA[=pv!Base64]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>true</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="folderName">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id/>
+                <a:expr><![CDATA[=pv!deploymentsDetails[#"urn:appian:record-field:v1:7b9ea405-1768-4649-983e-c61ea895fddc/cc23ffa8-74fd-4b27-bd6a-c2d66f9a0482"]]]></a:expr>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>true</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </custom-params>
+            <output-exprs>
+              <el typeFlag="1"><![CDATA[Error:AC!Error]]></el>
+              <el typeFlag="1"><![CDATA[Result:AC!Result]]></el>
+              <el typeFlag="1"><![CDATA[Success:AC!Success]]></el>
+            </output-exprs>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>true</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements/>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+            </form-map>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>15</guiId>
+              <to>14</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>true</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+        <node uuid="0001efe7-6ac8-8000-da99-7f0000014e7a">
+          <guiId>18</guiId>
+          <owner/>
+          <icon id="60"/>
+          <picon id="61"/>
+          <fname>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Subprocess - WS Push Zip Test]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </fname>
+          <x>336</x>
+          <y>112</y>
+          <display>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value><![CDATA[Subprocess - WS Push Zip Test]]></value>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </display>
+          <desc>
+            <string-map>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <value/>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <value/>
+              </pair>
+            </string-map>
+          </desc>
+          <notify>false</notify>
+          <confirmation-url/>
+          <lane/>
+          <overrideLaneAssignment>false</overrideLaneAssignment>
+          <ac>
+            <local-id>internal.38</local-id>
+            <name><![CDATA[SUB_PROC]]></name>
+            <acps>
+              <acp name="Instructions">
+                <a:value xsi:nil="true" xsi:type="xsd:string"/>
+                <a:local-id>0</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="pmID">
+                <a:value a:id="0002efe5-ddfc-8000-d970-7f0000014e7a"
+                  xmlns="" xsi:type="a:ProcessModel"/>
+                <a:local-id>1</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="inMap">
+                <a:value xmlns="" xsi:type="a:Bean?list">
+                  <a:acps>
+                    <a:acp name="oneInputMap">
+                      <a:value xsi:type="a:Bean">
+                        <a:acps>
+                          <a:acp name="sppn">
+                            <a:value xsi:type="xsd:string">DeploymentDetails</a:value>
+                            <a:local-id>4</a:local-id>
+                            <a:expr/>
+                            <a:required>1</a:required>
+                            <a:editable>0</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                          <a:acp name="sppv">
+                            <a:value
+                              xmlns:n1="urn:com:appian:recordtype:datatype"
+                              xsi:nil="true" xsi:type="n1:7b9ea405-1768-4649-983e-c61ea895fddc"/>
+                            <a:local-id>5</a:local-id>
+                            <a:expr><![CDATA[=pv!deploymentsDetails]]></a:expr>
+                            <a:required>0</a:required>
+                            <a:editable>1</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                        </a:acps>
+                      </a:value>
+                      <a:local-id>3</a:local-id>
+                      <a:expr/>
+                      <a:required>1</a:required>
+                      <a:editable>1</a:editable>
+                      <a:assign-to-pv/>
+                      <a:input-to-activity-class>true</a:input-to-activity-class>
+                      <a:hidden-from-designer>false</a:hidden-from-designer>
+                      <a:generated>false</a:generated>
+                      <a:enumeration/>
+                      <a:customDisplayReference/>
+                    </a:acp>
+                    <a:acp name="oneInputMap">
+                      <a:value xsi:type="a:Bean">
+                        <a:acps>
+                          <a:acp name="sppn">
+                            <a:value xsi:type="xsd:string">Document</a:value>
+                            <a:local-id>4</a:local-id>
+                            <a:expr/>
+                            <a:required>1</a:required>
+                            <a:editable>0</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                          <a:acp name="sppv">
+                            <a:value xsi:nil="true" xsi:type="a:CollaborationDocument"/>
+                            <a:local-id>5</a:local-id>
+                            <a:expr><![CDATA[=pv!zipToExport]]></a:expr>
+                            <a:required>0</a:required>
+                            <a:editable>1</a:editable>
+                            <a:assign-to-pv/>
+                            <a:input-to-activity-class>true</a:input-to-activity-class>
+                            <a:hidden-from-designer>false</a:hidden-from-designer>
+                            <a:generated>false</a:generated>
+                            <a:enumeration/>
+                            <a:customDisplayReference/>
+                          </a:acp>
+                        </a:acps>
+                      </a:value>
+                      <a:local-id>3</a:local-id>
+                      <a:expr/>
+                      <a:required>1</a:required>
+                      <a:editable>1</a:editable>
+                      <a:assign-to-pv/>
+                      <a:input-to-activity-class>true</a:input-to-activity-class>
+                      <a:hidden-from-designer>false</a:hidden-from-designer>
+                      <a:generated>false</a:generated>
+                      <a:enumeration/>
+                      <a:customDisplayReference/>
+                    </a:acp>
+                  </a:acps>
+                </a:value>
+                <a:local-id>2</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="outMap">
+                <a:value xsi:nil="true" xsi:type="a:Bean?list"/>
+                <a:local-id>6</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="subProcessID">
+                <a:value xsi:nil="true" xsi:type="xsd:int"/>
+                <a:local-id>10</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>0</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="procInheritsPriority">
+                <a:value xmlns="" xsi:type="xsd:int">1</a:value>
+                <a:local-id>11</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>false</a:input-to-activity-class>
+                <a:hidden-from-designer>false</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="pmUUID">
+                <a:value xmlns="" xsi:type="xsd:string">0002efe5-ddfc-8000-d970-7f0000014e7a</a:value>
+                <a:local-id>12</a:local-id>
+                <a:expr/>
+                <a:required>0</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="isAsynchronous">
+                <a:value xmlns="" xsi:type="xsd:boolean">false</a:value>
+                <a:local-id>13</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="isTransparent">
+                <a:value xmlns="" xsi:type="xsd:boolean">true</a:value>
+                <a:local-id>14</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="inheritSecurity">
+                <a:value xmlns="" xsi:type="xsd:boolean">false</a:value>
+                <a:local-id>15</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+              <acp name="chainsInto">
+                <a:value xmlns="" xsi:type="xsd:boolean">false</a:value>
+                <a:local-id>16</a:local-id>
+                <a:expr/>
+                <a:required>1</a:required>
+                <a:editable>1</a:editable>
+                <a:assign-to-pv/>
+                <a:input-to-activity-class>true</a:input-to-activity-class>
+                <a:hidden-from-designer>true</a:hidden-from-designer>
+                <a:generated>false</a:generated>
+                <a:enumeration/>
+                <a:customDisplayReference/>
+              </acp>
+            </acps>
+            <custom-params/>
+            <output-exprs/>
+            <requires-user-interaction>true</requires-user-interaction>
+            <run-as>
+              <performer id="0"/>
+            </run-as>
+            <form-map>
+              <pair>
+                <locale country="FR" lang="fr" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements>
+                        <form-element>
+                          <label><![CDATA[Question2]]></label>
+                          <instructions/>
+                          <editable>true</editable>
+                          <hidden>false</hidden>
+                          <multiple>false</multiple>
+                          <required>false</required>
+                          <type>0</type>
+                          <options/>
+                          <name><![CDATA[Question2]]></name>
+                          <mapped-to array-index="1" bean-array="inMap"><![CDATA[sppv]]></mapped-to>
+                          <value/>
+                          <extra><![CDATA[{}]]></extra>
+                        </form-element>
+                        <form-element>
+                          <label><![CDATA[Question2]]></label>
+                          <instructions/>
+                          <editable>true</editable>
+                          <hidden>false</hidden>
+                          <multiple>false</multiple>
+                          <required>false</required>
+                          <type>12</type>
+                          <options/>
+                          <name><![CDATA[Question2]]></name>
+                          <mapped-to array-index="1" bean-array="inMap"><![CDATA[sppv]]></mapped-to>
+                          <value/>
+                          <extra><![CDATA[{}]]></extra>
+                        </form-element>
+                      </form-elements>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="US" lang="en" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>true</enabled>
+                    <dynamic-form>
+                      <form-elements>
+                        <form-element>
+                          <label><![CDATA[Question2]]></label>
+                          <instructions/>
+                          <editable>true</editable>
+                          <hidden>false</hidden>
+                          <multiple>false</multiple>
+                          <required>false</required>
+                          <type>0</type>
+                          <options/>
+                          <name><![CDATA[Question2]]></name>
+                          <mapped-to array-index="1" bean-array="inMap"><![CDATA[sppv]]></mapped-to>
+                          <value/>
+                          <extra><![CDATA[{}]]></extra>
+                        </form-element>
+                        <form-element>
+                          <label><![CDATA[Question2]]></label>
+                          <instructions/>
+                          <editable>true</editable>
+                          <hidden>false</hidden>
+                          <multiple>false</multiple>
+                          <required>false</required>
+                          <type>12</type>
+                          <options/>
+                          <name><![CDATA[Question2]]></name>
+                          <mapped-to array-index="1" bean-array="inMap"><![CDATA[sppv]]></mapped-to>
+                          <value/>
+                          <extra><![CDATA[{}]]></extra>
+                        </form-element>
+                      </form-elements>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+              <pair>
+                <locale country="" lang="nl" variant=""/>
+                <form-config>
+                  <form>
+                    <type>3</type>
+                    <enabled>false</enabled>
+                    <dynamic-form>
+                      <form-elements>
+                        <form-element>
+                          <label><![CDATA[Question2]]></label>
+                          <instructions/>
+                          <editable>true</editable>
+                          <hidden>false</hidden>
+                          <multiple>false</multiple>
+                          <required>false</required>
+                          <type>0</type>
+                          <options/>
+                          <name><![CDATA[Question2]]></name>
+                          <mapped-to array-index="1" bean-array="inMap"><![CDATA[sppv]]></mapped-to>
+                          <value/>
+                          <extra><![CDATA[{}]]></extra>
+                        </form-element>
+                        <form-element>
+                          <label><![CDATA[Question2]]></label>
+                          <instructions/>
+                          <editable>true</editable>
+                          <hidden>false</hidden>
+                          <multiple>false</multiple>
+                          <required>false</required>
+                          <type>12</type>
+                          <options/>
+                          <name><![CDATA[Question2]]></name>
+                          <mapped-to array-index="1" bean-array="inMap"><![CDATA[sppv]]></mapped-to>
+                          <value/>
+                          <extra><![CDATA[{}]]></extra>
+                        </form-element>
+                      </form-elements>
+                    </dynamic-form>
+                    <uiExpressionForm>
+                      <expression><![CDATA[=/*41707069616E-GEN-DEBUG*/=a!formLayout(
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidgetSubmit(
+        label: "OK",
+        style: "PRIMARY"
+      )
+    }
+  ))]]></expression>
+                    </uiExpressionForm>
+                    <hiddenSections>16</hiddenSections>
+                  </form>
+                </form-config>
+              </pair>
+            </form-map>
+            <helper-class/>
+          </ac>
+          <multiple-instance/>
+          <escalations/>
+          <connections>
+            <connection>
+              <guiId>16</guiId>
+              <to>2</to>
+              <toObjectType>ap.gui.Node</toObjectType>
+              <fromAnchor/>
+              <toAnchor/>
+              <showArrowhead>true</showArrowhead>
+              <flowLabel/>
+              <label>
+                <fontColor>#000</fontColor>
+                <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+                <fontSize>12</fontSize>
+                <bold>false</bold>
+                <italics>false</italics>
+                <underline>false</underline>
+              </label>
+              <associations/>
+              <chained>true</chained>
+              <overridesAssignment>true</overridesAssignment>
+              <synchronizeData>false</synchronizeData>
+            </connection>
+          </connections>
+          <associations/>
+          <target-completion>5.0</target-completion>
+          <target-lag>1.0</target-lag>
+          <attachments/>
+          <notes/>
+          <lingering>false</lingering>
+          <on-create-ignore-if-active>false</on-create-ignore-if-active>
+          <on-create-delete-previous-active>false</on-create-delete-previous-active>
+          <on-complete-delete-previous-completed>false</on-complete-delete-previous-completed>
+          <pre-triggers/>
+          <post-triggers/>
+          <event-producers/>
+          <exception-flow/>
+          <label>
+            <fontColor>#000</fontColor>
+            <fontFamily>Appian Open Sans, Sans-Serif</fontFamily>
+            <fontSize>12</fontSize>
+            <bold>false</bold>
+            <italics>false</italics>
+            <underline>false</underline>
+          </label>
+          <deadline>
+            <enabled>false</enabled>
+            <type>0</type>
+            <units>0</units>
+            <rex/>
+            <aex/>
+          </deadline>
+          <allowsBack>false</allowsBack>
+          <refreshDefaultValues>false</refreshDefaultValues>
+          <on-complete-keep-form-data>false</on-complete-keep-form-data>
+          <skipNotification>false</skipNotification>
+        </node>
+      </nodes>
+      <annotations/>
+      <lanes/>
+      <attachments/>
+      <notes/>
+      <priority id="1"/>
+      <form-map>
+        <pair>
+          <locale country="FR" lang="fr" variant=""/>
+          <form-config>
+            <form>
+              <type>3</type>
+              <enabled>false</enabled>
+              <dynamic-form>
+                <form-elements/>
+              </dynamic-form>
+              <hiddenSections>16</hiddenSections>
+            </form>
+          </form-config>
+        </pair>
+        <pair>
+          <locale country="US" lang="en" variant=""/>
+          <form-config>
+            <form>
+              <type>3</type>
+              <enabled>true</enabled>
+              <dynamic-form>
+                <form-elements/>
+              </dynamic-form>
+              <hiddenSections>16</hiddenSections>
+            </form>
+          </form-config>
+        </pair>
+        <pair>
+          <locale country="" lang="nl" variant=""/>
+          <form-config>
+            <form>
+              <type>3</type>
+              <enabled>false</enabled>
+              <dynamic-form>
+                <form-elements/>
+              </dynamic-form>
+              <hiddenSections>16</hiddenSections>
+            </form>
+          </form-config>
+        </pair>
+      </form-map>
+      <isPublic>false</isPublic>
+      <isEPEx>false</isEPEx>
+    </pm>
+  </process_model_port>
+  <isPublished>true</isPublished>
+  <history>
+    <historyInfo versionUuid="0002efe4-f7fa-8000-d950-7f0000014e7a"/>
+    <historyInfo versionUuid="0001efe7-6ea9-8000-daae-7f0000014e7a"/>
+    <historyInfo versionUuid="0001efe7-764c-8000-dac6-7f0000014e7a"/>
+  </history>
+</processModelHaul>
