@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6990783</versionUuid>
+    <interface>
+        <name>WS_Call_Git_Action</name>
+        <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6990530</uuid>
+        <description></description>
+        <parentUuid>1cbdd368-c34e-4520-a8e6-8c346cb905b9</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_cardLayout"(
+    contents: {
+      #"SYSTEM_SYSRULES_recordActionField_v1"(
+        actions: {
+          #"SYSTEM_SYSRULES_recordActionItem"(
+            action:#"urn:appian:record-action:v1:7b9ea405-1768-4649-983e-c61ea895fddc/b54b2c81-e4d1-401f-9566-714181d2b54e"
+          )
+        },
+        align: "END",
+        style: "TOOLBAR_PRIMARY",
+        display: "LABEL_AND_ICON"
+      )
+    },
+    marginAbove: "STANDARD",
+    marginBelow: "EVEN_LESS",
+    height: "AUTO",
+    style: "TRANSPARENT",
+    showShadow: false,
+    showBorder: false
+  )
+}</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+        <isCustom>false</isCustom>
+    </interface>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_6990783"/>
+    </history>
+</contentHaul>
