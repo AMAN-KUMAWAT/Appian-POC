@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_7027287</versionUuid>
+    <rule>
+        <name>WS_Cast_AI_Data</name>
+        <uuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_7027236</uuid>
+        <description>expression rule to cast ai skill output to appian json</description>
+        <parentUuid>_a-0001efd2-cfb4-8000-9c83-011c48011c48_6994331</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!json: trim(
+    index(
+      split(ri!response, "&lt;output&gt;"),
+      2,
+      ""
+    )
+  ),
+
+  a!map(
+    artifactName: index(
+      split(
+        index(
+          split(local!json, """artifactName"":"),
+          2,
+          ""
+        ),
+        """"
+      ),
+      2,
+      null
+    ),
+
+    artifactType: index(
+      split(
+        index(
+          split(local!json, """artifactType"":"),
+          2,
+          ""
+        ),
+        """"
+      ),
+      2,
+      null
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>response</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0001efd2-cfb4-8000-9c83-011c48011c48_7027287"/>
+    </history>
+</contentHaul>
